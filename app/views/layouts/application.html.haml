@@ -8,4 +8,9 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    .inner-header
+      .top-nav
+        %ul.list-inline.top-nav-right
+          %li.nav-search.search
+            .formSearch
     = yield
