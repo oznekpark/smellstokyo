@@ -8,16 +8,4 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .header
-      .header__top
-        %ul.header__top__nav
-          %li.header__top__nav__search
-            = form_with url: "#", local: true do |f|
-              = f.text_field :text, class: "header__top__lists__search__box", placeholder: "search"
-              = f.submit ""
-                = icon("fas", "search")
-          %li.header__top__nav__account
-          %li.header__top__nav__cart
-      .header-middle
-      .header-bottom
     = yield

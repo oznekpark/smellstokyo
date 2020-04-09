@@ -5,3 +5,18 @@
   box-sizing: border-box;
 }
 
+.header {
+  width: 100vw;
+  &__top {
+    height: 100px;
+    background-color: red;
+  }
+  &__middle {
+    height: 100px;
+    background-color: green;
+  }
+  &__bottom {
+    height: 100px;
+    background-color: blue;
+  }
+}
