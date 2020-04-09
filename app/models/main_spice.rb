@@ -1,0 +1,2 @@
+class MainSpice < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class UseScene < ApplicationRecord
+end

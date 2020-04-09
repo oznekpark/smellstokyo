@@ -1,0 +1,2 @@
+class SmellType < ApplicationRecord
+end
