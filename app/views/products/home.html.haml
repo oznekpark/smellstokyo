@@ -3,17 +3,17 @@
     %ul.header__top__nav
       %li.header__top__nav__search
         = form_with model: @product, local: true do |f|
-          = f.text_field :keyword, class: "header__top__lists__search__box", placeholder: "search"
-          = button_tag type: 'submit', class: "header__top__lists__search__btn" do
-            %i.fa.fa-search
+          = f.text_field :keyword, class: "header__top__nav__search__box", placeholder: "search"
+          = button_tag type: "submit", class: "header__top__nav__search__btn" do
+            %i.fas.fa-search
       %li.header__top__nav__account
         = link_to root_path class: "header__top__nav__account__link" do
           my account
-          %i.fa.fa-user
+          %i.fas.fa-user
       %li.header__top__nav__cart
         = link_to root_path, class: "header__top__nav__cart__link" do
           view cart
-          %i.fa.fa-shopping-cart
+          %i.fas.fa-shopping-cart
   .header__middle
     kenzo
   .header__bottom
