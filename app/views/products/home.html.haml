@@ -1,20 +1,39 @@
-.header
-  .header__top
-    %ul.header__top__nav
-      %li.header__top__nav__search
-        = form_with model: @product, local: true do |f|
-          = f.text_field :keyword, class: "header__top__nav__search__box", placeholder: "search"
-          = button_tag type: "submit", class: "header__top__nav__search__btn" do
-            %i.fas.fa-search
-      %li.header__top__nav__account
-        = link_to root_path class: "header__top__nav__account__link" do
-          my account
-          %i.fas.fa-user
-      %li.header__top__nav__cart
-        = link_to root_path, class: "header__top__nav__cart__link" do
-          view cart
-          %i.fas.fa-shopping-cart
-  .header__middle
-    kenzo
-  .header__bottom
-    kenzo
+-# .header
+-#   .header__top
+-#     %ul.header__top__nav
+-#       %li.header__top__nav__search
+-#         = form_with model: @product, local: true do |f|
+-#           = f.text_field :keyword, class: "header__top__nav__search__box", placeholder: "search"
+-#           = button_tag type: "submit", class: "header__top__nav__search__btn" do
+-#             %i.fas.fa-search
+-#       %li.header__top__nav__account
+-#         = link_to root_path, class: "header__top__nav__account__link" do
+-#           my account
+-#           %i.fas.fa-user
+-#       %li.header__top__nav__cart
+-#         = link_to root_path, class: "header__top__nav__cart__link" do
+-#           view cart
+-#           %i.fas.fa-shopping-cart
+-#   .header__middle
+-#     .header__middle__site-name
+-#       Smells Tokyo
+-#   .header__bottom
+-#     %ul.header__bottom__nav
+-#       %li.header__bottom__nav__category
+-#         = link_to root_path, class: "header__bottom__nav__category__women" do
+-#           WOMEN
+-#       %li.header__bottom__nav__category
+-#         = link_to root_path, class: "header__bottom__nav__category__men" do
+-#           MEN
+-#       %li.header__bottom__nav__category
+-#         = link_to root_path, class: "header__bottom__nav__category__select" do
+-#           SELECT
+-#       %li.header__bottom__nav__category
+-#         = link_to root_path, class: "header__bottom__nav__category__news" do
+-#           NEWS
+.main
+  .main__top-img
+  .main__concept
+    .main__concept__describe
+  .main__new-item
+.footer

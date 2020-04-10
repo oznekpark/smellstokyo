@@ -1,51 +1,23 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-* {
-  box-sizing: border-box;
+
+.fas {
+  padding-left: 4px;
 }
 
-.header {
-  width: 100vw;
-  &__top {
+.main {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  &__top-img {
+    background-image: url(home-top.jpg);
     height: 100px;
-    &__nav {
-      display: flex;
-      justify-content: flex-end;
-      &__search__box {
-        border: none;
-        border-bottom: solid 1px rgb(156, 156, 156);
-      }
-      &__search__btn {
-        outline: none;
-        border: none;
-        font-size: 1.03em;
-        padding-left: 0;
-      }
-    }
-  }
-  &__middle {
-    height: 100px;
-    background-color: green;
-  }
-  &__bottom {
-    height: 100px;
-    background-color: blue;
   }
 }
 
-//   .header__top
-//     %ul.header__top__nav
-//       %li.header__top__nav__search
-//         = form_with model: @product, local: true do |f|
-//           = f.text_field :keyword, class: "header__top__nav__search__box", placeholder: "search"
-//           = button_tag type: 'submit', class: "header__top__nav__search__btn" do
-//             %i.fa.fa-search
-//       %li.header__top__nav__account
-//         = link_to root_path class: "header__top__nav__account__link" do
-//           my account
-//           %i.fa.fa-user
-//       %li.header__top__nav__cart
-//         = link_to root_path, class: "header__top__nav__cart__link" do
-//           view cart
-//           %i.fa.fa-shopping-cart
+// .main
+//   .main__top-img
+//   .main__concept
+//     .main__concept__describe
+//   .main__new-item
