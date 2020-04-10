@@ -10,14 +10,43 @@
   max-width: 100%;
   overflow: hidden;
   position: relative;
+  background-color: #fff;
+  overflow: scroll;
   &__top-img {
-    background-image: url(home-top.jpg);
-    height: 100px;
+    background-image: image-url("home-top.jpg");
+    background-size: cover;
+    width: 1200px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: 140px;
+    margin-bottom: 70px;
+  }
+  &__concept {
+    width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+    &__title {
+      font-size: 26px;
+      &__description {
+        font-size: 15px;
+        margin-top: 20px;
+      }
+    }
+  }
+  &__link-index {
+    width: 1200px;
+    text-align: center;
+    margin: 40px auto;
+    &__link {
+      font-size: 18px;
+      border-radius: 40px;
+      background-color: rgb(53, 44, 36);
+      color: #fff;
+      padding: 5px 50px;
+      display: block;
+      margin: 0 auto;
+      width: 300px;
+
+    }
   }
 }
-
-// .main
-//   .main__top-img
-//   .main__concept
-//     .main__concept__describe
-//   .main__new-item
