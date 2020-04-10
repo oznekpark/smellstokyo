@@ -6,6 +6,7 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .header
@@ -26,7 +27,8 @@
               %i.fas.fa-shopping-cart
       .header__middle
         .header__middle__site-name
-          Smells Tokyo
+          = link_to root_path class: "header__middle__site-name__link" do
+            Smells Tokyo
       .header__bottom
         %ul.header__bottom__nav
           %li.header__bottom__nav__category
@@ -42,3 +44,5 @@
             = link_to root_path, class: "header__bottom__nav__category__news" do
               NEWS
     = yield
+    = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
+
