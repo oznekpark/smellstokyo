@@ -31,7 +31,7 @@
     text-align: center;
     margin: 0 auto;
     &__title {
-      font-size: 26px;
+      font-size: 50px;
       font-family: 'Bebas Neue', cursive;
       color: $base-font-color;
       &__description {
@@ -52,23 +52,45 @@
       color: $background-color;
       padding: 5px 50px;
       display: block;
-      margin: 0 auto;
+      margin: 30px auto;
       width: 300px;
+      font-weight: bold;
     }
   }
-   &__items {
-     max-width: 1200px;
-     text-align: center;
+  &__items {
+    max-width: 1200px;
+    text-align: center;
     margin: 40px auto;
     &__new {
-      font-size: 30px;
+      font-size: 50px;
       color: $base-font-color;
       font-family: 'Bebas Neue', cursive;
+      margin-top: 70px;
       margin-bottom: 20px;
     }
    }
 }
 
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
 .swiper-slide {
-  float: left;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }

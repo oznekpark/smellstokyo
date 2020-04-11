@@ -1,18 +1,29 @@
-var mySwiper = new Swiper('.swiper-container', {
-  autoHeight: true,
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-    reverseDirection: false
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true
-  }
-});
+  var swiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoHeight: true,
+    slidesPerView: 3,
+    // spaceBetween: 10,
+    slidesPerGroup: 1,
+    loopFillGroupWithBlank: true,
+    centeredSlides: true,
+    // pagination: {
+    //   el: '.swiper-pagination',
+    //   clickable: true,
+    //   dynamicBullets: true
+    // },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      hide: true,
+      draggable: true
+    },
+    // breakpoints: {
+    //   767: {
+    //     slidesPerView: 1,
+    //     spaceBetween: 0
+    //   }
+    // }
+  });
