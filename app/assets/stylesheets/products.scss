@@ -6,47 +6,69 @@
   padding-left: 4px;
 }
 
+ // 変数（色）----------------
+ $base-font-color: rgb(51, 51, 51);
+ $background-color: #fff;
+  //-------------------------
+
 .main {
   max-width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: #fff;
+  background-color: $background-color;
   overflow: scroll;
   &__top-img {
     background-image: image-url("home-top.jpg");
     background-size: cover;
-    width: 1200px;
+    max-width: 1200px;
     height: 550px;
     margin: 0 auto;
     margin-top: 140px;
     margin-bottom: 70px;
   }
   &__concept {
-    width: 1200px;
+    max-width: 1200px;
     text-align: center;
     margin: 0 auto;
     &__title {
       font-size: 26px;
+      font-family: 'Bebas Neue', cursive;
+      color: $base-font-color;
       &__description {
         font-size: 15px;
         margin-top: 20px;
+        color: $base-font-color;
       }
     }
   }
   &__link-index {
-    width: 1200px;
+    max-width: 1200px;
     text-align: center;
     margin: 40px auto;
     &__link {
       font-size: 18px;
       border-radius: 40px;
-      background-color: rgb(53, 44, 36);
-      color: #fff;
+      background-color: $base-font-color;
+      color: $background-color;
       padding: 5px 50px;
       display: block;
       margin: 0 auto;
       width: 300px;
-
     }
   }
+   &__items {
+     max-width: 1200px;
+     text-align: center;
+    margin: 40px auto;
+    &__new {
+      font-size: 30px;
+      color: $base-font-color;
+      font-family: 'Bebas Neue', cursive;
+      margin-bottom: 20px;
+    }
+   }
+}
+
+.swiper-slide {
+  float: left;
 }

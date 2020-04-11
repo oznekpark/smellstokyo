@@ -4,7 +4,7 @@
     .main__concept__title
       Idea of Smells Tokyo
       .main__concept__title__description
-        世の中にはたくさんの香りであふれています。
+        世の中はたくさんの香りであふれています。
         %br
         %br
         香りは気分を変えてくれたり、リラックスさせてくれたりと生活を豊かにしてくれるものの1つです。
@@ -33,24 +33,18 @@
     = link_to products_path, class: "main__link-index__link" do
       SELECT
   .main__items
-    .main__items_new
+    .main__items__new
       NEW ITEM
-      -# main container
-      .swiper-container.top-carousel
-        -# slide wrapper
-        .swiper-wrapper
-          -# slides
-          .swiper-slide
-            = image_tag 'anthony-delanoix-02f3KC3zKPk-unsplash.jpg', alt: 'swipe01', width: 200, height: 200
-          .swiper-slide
-            = image_tag 'corinne-kutz-7ZtPwmSKj6U-unsplash.jpg', alt: 'swipe02', width: 200, height: 200
-          .swiper-slide
-            = image_tag 'daria-nepriakhina-zNU3ErDAbAw-unsplash.jpg', alt: 'swipe03', width: 200, height: 200
-          .swiper-slide
-            = image_tag 'home-top.jpg', alt: 'swipe04', width: 200, height: 200
-        -# if need navigation button 
-        .swiper-button-prev
-        .swiper-button-next
-        -# if need pagination 
-        .swiper-pagination
-.footer
+    .swiper-container
+      .swiper-wrapper
+        .swiper-slide
+          = image_tag 'anthony-delanoix-02f3KC3zKPk-unsplash.jpg', alt: 'swipe01', width: 200, height: 200
+        .swiper-slide
+          = image_tag 'corinne-kutz-7ZtPwmSKj6U-unsplash.jpg', alt: 'swipe02', width: 200, height: 200
+        .swiper-slide
+          = image_tag 'daria-nepriakhina-zNU3ErDAbAw-unsplash.jpg', alt: 'swipe03', width: 200, height: 200
+        .swiper-slide
+          = image_tag 'home-top.jpg', alt: 'swipe04', width: 200, height: 200
+      .swiper-pagination
+      .swiper-button-prev
+      .swiper-button-next

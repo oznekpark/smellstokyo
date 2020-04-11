@@ -19,22 +19,28 @@
  @import "font-awesome";
  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&family=Amatic+SC:wght@700&family=Anton&family=Bangers&family=Caveat&family=Cherry+Swash:wght@700&family=Corben:wght@700&family=Creepster&family=Economica:wght@700&family=Homemade+Apple&family=IM+Fell+DW+Pica+SC&family=Kaushan+Script&family=Londrina+Shadow&family=Montserrat+Subrayada&family=Oswald:wght@700&family=Permanent+Marker&family=Quicksand&family=Roboto+Condensed:wght@700&family=Teko&family=Vollkorn&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+ // 変数（色）----------------
+$base-font-color: rgb(51, 51, 51);
+$background-color: #fff;
+ //-------------------------
 
  .header {
   width: 100vw;
   padding-top: 19px;
-  padding-bottom: 14px;
+  padding-bottom: 10px;
   position: relative;
   position: fixed;
   z-index: 10;
-  background-color: #fff;
+  background-color: $background-color;
   &__top {
     height: 25px;
     margin-top: 17px;
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
+    max-width: 100%;
     padding: 0 15px;
     &__nav {
       display: flex;
@@ -52,7 +58,7 @@
           font-size: 1.03em;
           padding: 0 0;
           color:rgb(58, 58, 58);
-          margin-right: 8px;
+          margin-right: 15px;
         }
       }
       &__account {
@@ -62,7 +68,7 @@
         }
       }
       &__cart {
-        padding-right: 15px;
+        padding-right: 9px;
         &__link {
           color:rgb(58, 58, 58);
         }
@@ -70,15 +76,16 @@
     }
   }
   &__middle {
-    width: 100%;
+    max-width: 100%;
     &__site-name {
       font-size: 32px;
       height: 48px;
       text-align: center;
       font-family: 'Montserrat Subrayada', sans-serif;
+      // font-family: 'Bebas Neue', cursive;
       margin-top: 20px;
       &__link {
-        color: rgb(58, 58, 58);
+        color: $base-font-color;;
       }
     }
   }
@@ -87,23 +94,23 @@
     &__nav {
       margin-left: 0;
       margin-top: 2px;
-      width: 100%;
+      max-width: 100%;
       &__category {
         width: 9%;
         list-style: none;
         display: inline-block;
         margin: 15px auto;
         &__women {
-          color:rgb(58, 58, 58);
+          color: $base-font-color;
         }
         &__men {
-          color:rgb(58, 58, 58);
+          color: $base-font-color;
         }
         &__select {
-          color:rgb(58, 58, 58);
+          color: $base-font-color;
         }
         &__news {
-          color:rgb(58, 58, 58);
+          color: $base-font-color;
         }
       }
     }
