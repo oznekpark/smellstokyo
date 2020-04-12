@@ -20,14 +20,14 @@
   &__top-img {
     background-image: image-url("home-top.jpg");
     background-size: cover;
-    max-width: 1200px;
+    width: 1200px;
     height: 550px;
     margin: 0 auto;
     margin-top: 140px;
     margin-bottom: 70px;
   }
   &__concept {
-    max-width: 1200px;
+    width: 1200px;
     text-align: center;
     margin: 0 auto;
     &__title {
@@ -42,7 +42,7 @@
     }
   }
   &__link-index {
-    max-width: 1200px;
+    width: 1200px;
     text-align: center;
     margin: 40px auto;
     &__link {
@@ -58,7 +58,7 @@
     }
   }
   &__items {
-    max-width: 1200px;
+    width: 1200px;
     text-align: center;
     margin: 40px auto;
     &__new {
