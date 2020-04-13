@@ -32,10 +32,10 @@ $background-color: #fff;
 
 .header {
   width: 100vw;
-  padding-top: 19px;
-  padding-bottom: 10px;
+  padding-top: 20px;
   position: relative;
   position: fixed;
+  top: 0;
   z-index: 10;
   background-color: $background-color;
   &__top {
@@ -45,7 +45,6 @@ $background-color: #fff;
     top: 0;
     right: 0;
     width: 100%;
-    padding: 0 15px;
     &__nav {
       display: flex;
       justify-content: flex-end;
@@ -72,7 +71,7 @@ $background-color: #fff;
         }
       }
       &__cart {
-        padding-right: 9px;
+        padding-right: 20px;
         &__link {
           color:rgb(58, 58, 58);
         }

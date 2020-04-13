@@ -11,6 +11,7 @@
  $background-color: #fff;
   //-------------------------
 
+  //home.<start>
 .main {
   max-width: 100%;
   overflow: hidden;
@@ -79,7 +80,6 @@
   text-align: center;
   font-size: 18px;
   background: #fff;
-
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,3 +94,70 @@
   -webkit-align-items: center;
   align-items: center;
 }
+//home.<end>
+
+//index.<start>
+.index-contents {
+  margin-top: 140px;
+  width: 100vw;
+  &__topicPath {
+    height: 10px;
+    width: 1200px;
+    margin: 5px auto;
+    color: $base-font-color;
+  }
+  &__amountProducts {
+    height: 10px;
+    width: 1200px;
+    margin: 10px auto;
+    color: $base-font-color;
+  }
+  &__main {
+    display: flex;
+    &__left {
+      background-color: darkgrey;
+      padding: 30px 20px;
+    }
+    &__right {
+      background-color: darkkhaki;
+      &__categoryList {
+        padding: 20px;
+        width: 100%;
+        &__innerList {
+          display: flex;
+          overflow: hidden;
+          background-color: $background-color;
+          &__innerBox {
+            width: 50%;
+            &__image {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//index.<end>
+
+// .index-contents
+//   .index-contents__topicPath
+//   .index-contents__amountProducts
+//     = "#{@products.length}件"
+//   .index-contents__main
+//     .index-contents__main__left
+//     .index-contents__main__right
+//       .index-contents__main__right__categoryList
+//         %ul.index-contents__main__right__categoryList__innerList
+//           - @products.each do |product|
+//             %li
+//               .index-contents__main__right__categoryList__innerList__innerBox
+//                 .index-contents__main__right__categoryList__innerList__innerBox__image
+//                   =link_to "#", class: "index-contents__main__right__categoryList__innerList__innerBox__image__link" do
+//                     = image_tag product.image, width: 200, height: 200
+//                 .index-contents__main__right__categoryList__innerList__innerBox__detail
+//                   .index-contents__main__right__categoryList__innerList__innerBox__detail__name
+//                     = product.name
+//                   .index-contents__main__right__categoryList__innerList__innerBox__detail__price
+//                     -# = product.price

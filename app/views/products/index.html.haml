@@ -1,24 +1,45 @@
-%h1 Listing products
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th image
-      -# %th Price
-      -# %th Discontinued
-      %th{:colspan => "3"}
-
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= product.name
-        %td= product.description
-        %td= product.image
-        -# %td= product.price
-        %td= link_to 'Show', "#"
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', "#", method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
+.index-contents
+  .index-contents__topicPath
+    home > index
+  .index-contents__amountProducts
+    = "#{@products.length}件"
+  .index-contents__main
+    .index-contents__main__left
+      %ul.index-contents__main__left__selectCategory
+        = form_with model: @product, local: true do |f|
+          %li.index-contents__main__left__selectCategory__list
+            ブランド
+            = f.select :brand_id, options_for_select(Product.brand_ids.keys), class:".index-contents__main__left__selectCategory__tag", placeholder: "ブランド"
+          %li.index-contents__main__left__selectCategory__list
+            性別
+            = f.select :sex_id, options_for_select(Product.sex_ids.keys), class:".index-contents__main__left__selectCategory__tag"
+          %li.index-contents__main__left__selectCategory__list
+            使用したい季節
+            = f.select :seoson_id, options_for_select(Product.seoson_ids.keys), class:".index-contents__main__left__selectCategory__tag"
+          %li.index-contents__main__left__selectCategory__list
+            香りのタイプ
+            = f.select :smell_type_id, options_for_select(Product.smell_type_ids.keys), class:".index-contents__main__left__selectCategory__tag"
+          %li.index-contents__main__left__selectCategory__list
+            メインの香り
+            = f.select :main_spice_id, options_for_select(Product.main_spice_ids.keys), class:".index-contents__main__left__selectCategory__tag"
+          %li.index-contents__main__left__selectCategory__list
+            持たせたい印象
+            = f.select :smell_impression_id, options_for_select(Product.smell_impression_ids.keys), class:".index-contents__main__left__selectCategory__tag"
+          %li.index-contents__main__left__selectCategory__list
+            使用場面
+            = f.select :use_scene_id, options_for_select(Product.use_scene_ids.keys), class:".index-contents__main__left__selectCategory__tag"
+          %li.index-contents__main__left__selectCategory__list
+            = f.submit "絞り込む"
+    .index-contents__main__right
+      .index-contents__main__right__categoryList
+        %ul.index-contents__main__right__categoryList__innerList
+          - @products.each do |product|
+            %li.index-contents__main__right__categoryList__innerList__innerBox
+              .index-contents__main__right__categoryList__innerList__innerBox__image
+                =link_to "#", class: "index-contents__main__right__categoryList__innerList__innerBox__image__link" do
+                  = image_tag product.image, width: 200, height: 200
+              .index-contents__main__right__categoryList__innerList__innerBox__detail
+                .index-contents__main__right__categoryList__innerList__innerBox__detail__name
+                  = product.name
+                .index-contents__main__right__categoryList__innerList__innerBox__detail__price
+                  = product.price
