@@ -4,11 +4,11 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @products = Product.all.order(:id)
   end
 
   def show
-    
+
   end
 
   def new
