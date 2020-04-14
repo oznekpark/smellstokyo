@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.order(:id)
+    @products = Product.all.order(:id).include(:brand, :main_spice, :season, :sex, :smell_impression, :smell_type, :use_scene, :user)
   end
 
   def show

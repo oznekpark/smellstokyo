@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   belongs_to :use_scene
   validates :name, :description, :image, presence: true
 
+  belongs_to :user
+
   enum brand_id: {
     "---": 0,
     BURBERRY: 1,
