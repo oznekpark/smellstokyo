@@ -1,45 +1,52 @@
 .index-contents
+  .index-contents__selectTab
+    = form_with model: @product, local: true do |f|
+      %ul.index-contents__selectTab__selectCategory
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+            ブランドを選択してください
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :brand_id, options_for_select(Product.brand_ids.keys), class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+            性別を選択してください
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :sex_id, options_for_select(Product.sex_ids.keys), class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+            香りのタイプを選択してください
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :smell_type_id, options_for_select(Product.smell_type_ids.keys), class:"index-contents__selectTab__selectCategory__list__tag__select"
+      %ul.index-contents__selectTab__selectCategory
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+            メインの香りを選択してください
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :main_spice_id, options_for_select(Product.main_spice_ids.keys), class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+            持たせたい印象を選択してください
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :smell_impression_id, options_for_select(Product.smell_impression_ids.keys), class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+            使用場面を選択してください
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :use_scene_id, options_for_select(Product.use_scene_ids.keys), class:"index-contents__selectTab__selectCategory__list__tag__select"
+      .index-contents__selectTab__selectBtn
+        = button_tag "絞り込む", class:"index-contents__selectTab__selectBtn__btn"
   .index-contents__topicPath
     home > index
   .index-contents__amountProducts
     = "#{@products.length}件"
   .index-contents__main
-    .index-contents__main__left
-      %ul.index-contents__main__left__selectCategory
-        = form_with model: @product, local: true do |f|
-          %li.index-contents__main__left__selectCategory__list
-            ブランド
-            = f.select :brand_id, options_for_select(Product.brand_ids.keys), class:".index-contents__main__left__selectCategory__tag", placeholder: "ブランド"
-          %li.index-contents__main__left__selectCategory__list
-            性別
-            = f.select :sex_id, options_for_select(Product.sex_ids.keys), class:".index-contents__main__left__selectCategory__tag"
-          %li.index-contents__main__left__selectCategory__list
-            使用したい季節
-            = f.select :seoson_id, options_for_select(Product.seoson_ids.keys), class:".index-contents__main__left__selectCategory__tag"
-          %li.index-contents__main__left__selectCategory__list
-            香りのタイプ
-            = f.select :smell_type_id, options_for_select(Product.smell_type_ids.keys), class:".index-contents__main__left__selectCategory__tag"
-          %li.index-contents__main__left__selectCategory__list
-            メインの香り
-            = f.select :main_spice_id, options_for_select(Product.main_spice_ids.keys), class:".index-contents__main__left__selectCategory__tag"
-          %li.index-contents__main__left__selectCategory__list
-            持たせたい印象
-            = f.select :smell_impression_id, options_for_select(Product.smell_impression_ids.keys), class:".index-contents__main__left__selectCategory__tag"
-          %li.index-contents__main__left__selectCategory__list
-            使用場面
-            = f.select :use_scene_id, options_for_select(Product.use_scene_ids.keys), class:".index-contents__main__left__selectCategory__tag"
-          %li.index-contents__main__left__selectCategory__list
-            = f.submit "絞り込む"
-    .index-contents__main__right
-      .index-contents__main__right__categoryList
-        %ul.index-contents__main__right__categoryList__innerList
-          - @products.each do |product|
-            %li.index-contents__main__right__categoryList__innerList__innerBox
-              .index-contents__main__right__categoryList__innerList__innerBox__image
-                =link_to "#", class: "index-contents__main__right__categoryList__innerList__innerBox__image__link" do
-                  = image_tag product.image, width: 200, height: 200
-              .index-contents__main__right__categoryList__innerList__innerBox__detail
-                .index-contents__main__right__categoryList__innerList__innerBox__detail__name
-                  = product.name
-                .index-contents__main__right__categoryList__innerList__innerBox__detail__price
-                  = product.price
+    .index-contents__main__categoryList
+      %ul.index-contents__main__categoryList__innerList
+        - @products.each do |product|
+          %li.index-contents__main__categoryList__innerList__innerBox
+            .index-contents__main__categoryList__innerList__innerBox__image
+              = link_to "#", class: "index-contents__main__categoryList__innerList__innerBox__image__link" do
+                = image_tag product.image, width: 200, height: 200
+            .index-contents__main__categoryList__innerList__innerBox__detail
+              = link_to "#", class: "index-contents__main__categoryList__innerList__innerBox__detail__name" do
+                = product.name

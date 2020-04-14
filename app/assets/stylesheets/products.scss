@@ -100,6 +100,41 @@
 .index-contents {
   margin-top: 140px;
   width: 100vw;
+  &__selectTab {
+    margin: 30px auto;
+    width: 1200px;
+    &__selectCategory {
+      display: flex;
+      width: 100%;
+      margin-bottom: 10px;
+      &__list {
+        width: calc(100%/3);
+        display: inline-block;
+        &__description {
+        margin-left: 60px;
+        padding: 4px 0;
+        color: $base-font-color;
+        }
+        &__tag {
+        margin-left: 60px;
+        padding: 4px 0;
+        }
+      }
+    }
+    &__selectBtn {
+      padding-top: 20px;
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: $background-color;
+      color: $base-font-color;
+      &__btn {
+        background: none;
+        font-size: 12px;
+        color: $base-font-color;
+      }
+    }
+  }
   &__topicPath {
     height: 10px;
     width: 1200px;
@@ -113,24 +148,34 @@
     color: $base-font-color;
   }
   &__main {
-    display: flex;
-    &__left {
-      background-color: darkgrey;
-      padding: 30px 20px;
-    }
-    &__right {
-      background-color: darkkhaki;
-      &__categoryList {
-        padding: 20px;
+    width: 100vw;
+    &__categoryList {
+      // padding: 20px;
+      width: 1200px;
+      margin: 0 auto;
+      &__innerList {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        background-color: $background-color;
         width: 100%;
-        &__innerList {
-          display: flex;
-          overflow: hidden;
-          background-color: $background-color;
-          &__innerBox {
-            width: 50%;
-            &__image {
-              text-align: center;
+        &__innerBox {
+          width: 25%;
+          margin: 8px auto;
+          &__image {
+            text-align: center;
+            height: 200px;
+          }
+          &__image:hover {
+            opacity: 0.6;
+          }
+          &__detail {
+            text-align: center;
+            padding: 0 20px;
+            overflow: hidden;
+            margin: 8px;
+            &__name {
+              margin-bottom: 4px;
             }
           }
         }
@@ -139,25 +184,9 @@
   }
 }
 
+select {
+  background-color: #fff;
+  width: 250px;
+  color: $base-font-color;
+}
 //index.<end>
-
-// .index-contents
-//   .index-contents__topicPath
-//   .index-contents__amountProducts
-//     = "#{@products.length}件"
-//   .index-contents__main
-//     .index-contents__main__left
-//     .index-contents__main__right
-//       .index-contents__main__right__categoryList
-//         %ul.index-contents__main__right__categoryList__innerList
-//           - @products.each do |product|
-//             %li
-//               .index-contents__main__right__categoryList__innerList__innerBox
-//                 .index-contents__main__right__categoryList__innerList__innerBox__image
-//                   =link_to "#", class: "index-contents__main__right__categoryList__innerList__innerBox__image__link" do
-//                     = image_tag product.image, width: 200, height: 200
-//                 .index-contents__main__right__categoryList__innerList__innerBox__detail
-//                   .index-contents__main__right__categoryList__innerList__innerBox__detail__name
-//                     = product.name
-//                   .index-contents__main__right__categoryList__innerList__innerBox__detail__price
-//                     -# = product.price
