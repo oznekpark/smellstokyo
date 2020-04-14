@@ -190,3 +190,34 @@ select {
   color: $base-font-color;
 }
 //index.<end>
+
+
+.login{
+  padding-top: 140px;
+  padding-bottom: 30px;
+  width: 100vw;
+  text-align: center;
+  &__title {
+    margin: 20px 0;
+  }
+}
+
+.signup {
+  padding-top: 140px;
+  padding-bottom: 30px;
+  width: 100vw;
+  text-align: center;
+  &__title {
+    margin: 20px 0;
+  }
+}
+
+.editUser {
+  padding-top: 140px;
+  padding-bottom: 30px;
+  width: 100vw;
+  text-align: center;
+  &__title {
+    margin: 20px 0;
+  }
+}

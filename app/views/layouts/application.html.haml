@@ -19,7 +19,7 @@
               = button_tag type: "submit", class: "header__top__nav__search__btn" do
                 %i.fas.fa-search
           %li.header__top__nav__account
-            = link_to root_path, class: "header__top__nav__account__link" do
+            = link_to new_user_session_path, class: "header__top__nav__account__link" do
               my account
               %i.fas.fa-user
           %li.header__top__nav__cart
@@ -33,19 +33,33 @@
       .header__bottom
         %ul.header__bottom__nav
           %li.header__bottom__nav__category
-            = link_to root_path, class: "header__bottom__nav__category__women" do
+            = link_to "#", class: "header__bottom__nav__category__women" do
               WOMEN
           %li.header__bottom__nav__category
-            = link_to root_path, class: "header__bottom__nav__category__men" do
+            = link_to "#", class: "header__bottom__nav__category__men" do
               MEN
           %li.header__bottom__nav__category
             = link_to products_path, class: "header__bottom__nav__category__select" do
               SELECT
           %li.header__bottom__nav__category
-            = link_to root_path, class: "header__bottom__nav__category__news" do
+            = link_to "#", class: "header__bottom__nav__category__news" do
               NEWS
     = yield
     
     .footer
+      - if user_signed_in?
+        %ul.footer__menu
+          %li.footer__menu__list
+            = link_to "ログアウト", destroy_user_session_path, class: "footer__menu__list", method: :delete 
+          %li.footer__menu__list
+            = link_to "カート確認", "#", class: "footer__menu__list"
+          %li.footer__menu__list
+            = link_to "会員情報修正", edit_user_registration_path, class: "footer__menu__list"
+      - else
+        %ul.footer__menu
+          %li.footer__menu__list
+            = link_to "ログイン", new_user_session_path, class: "footer__menu__list"
+          %li.footer__menu__list
+            = link_to "新規登録", new_user_registration_path, class: "footer__menu__list"
 
 
