@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  # before_action :move_to_index, except: [:home, :index, :show, :search]
   
   def home
   end
@@ -41,14 +42,17 @@ class ProductsController < ApplicationController
   end
 
   # def search
-  #   #Viewのformで取得したパラメータをモデルに渡す
-  #   @products = Product.search(params[:search])
+  #   @products = Product.search(params[:keyword])
   # end
 
   private
 
   def product_params
-    params.permit(:brand_id, :sex_id, :smell_type_id, :main_spice_id, :smell_impression_id, :use_scene_id)
+    params.require(:product).permit(:name, :description, :image, :brand_id, :sex_id, :smell_type_id, :main_spice_id, :smell_impression_id, :use_scene_id)
   end
+
+  # def move_to_index
+  #   redirect_to action: :home unless user_signed_in?
+  # end
 
 end
