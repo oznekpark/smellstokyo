@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:brand, :main_spice, :season, :sex, :smell_impression, :smell_type, :use_scene).order('created_at DESC')
+    
   end
 
   def show
@@ -39,10 +40,15 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  # def search
+  #   #Viewのformで取得したパラメータをモデルに渡す
+  #   @products = Product.search(params[:search])
+  # end
+
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :image, :price, :stock_quantity, :brand_id, :sex_id, :season_id, :smell_type_id, :main_spice_id, :smell_impression, :use_scene_id)
+    params.permit(:brand_id, :sex_id, :smell_type_id, :main_spice_id, :smell_impression_id, :use_scene_id)
   end
 
 end
