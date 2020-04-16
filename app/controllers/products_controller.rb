@@ -4,25 +4,45 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.order(:id).include(:brand, :main_spice, :season, :sex, :smell_impression, :smell_type, :use_scene, :user)
+    @products = Product.includes(:brand, :main_spice, :season, :sex, :smell_impression, :smell_type, :use_scene).order('created_at DESC')
   end
 
   def show
-
   end
 
   def new
+    @product = Product.new
   end
 
   def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to products_path
+    else
+      render :new
+    end
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to products_path, method: :put
+    else
+      render :edit
+    end
   end
 
   def destroy
   end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :description, :image, :price, :stock_quantity, :brand_id, :sex_id, :season_id, :smell_type_id, :main_spice_id, :smell_impression, :use_scene_id)
+  end
+
 end

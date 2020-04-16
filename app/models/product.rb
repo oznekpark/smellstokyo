@@ -16,6 +16,8 @@ class Product < ApplicationRecord
     DIOR: 2,
     CHANEL: 3,
     "JO MALONE": 4,
+    Aesop: 5,
+    shiro: 6
   },  _prefix: true
 
   enum sex_id: {
