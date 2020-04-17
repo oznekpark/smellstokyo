@@ -1,0 +1,49 @@
+// 変数（色）----------------
+$base-font-color: rgb(51, 51, 51);
+$background-color: #fff;
+ //-------------------------
+
+.login{
+  padding-top: 180px;
+  padding-bottom: 30px;
+  width: 100vw;
+  text-align: center;
+  color: $base-font-color;
+  &__title {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.signup {
+  padding-top: 170px;
+  width: 100vw;
+  text-align: center;
+  color: $base-font-color;
+  &__title {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.editUser {
+  padding-top: 170px;
+  width: 100vw;
+  text-align: center;
+  color: $base-font-color;
+  &__title {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.field {
+  margin: 20px 0;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
