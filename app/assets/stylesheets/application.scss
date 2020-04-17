@@ -15,11 +15,13 @@
  */
 
  @import "reset";
+ @import "config/colors";
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&family=Amatic+SC:wght@700&family=Anton&family=Bangers&family=Caveat&family=Cherry+Swash:wght@700&family=Corben:wght@700&family=Creepster&family=Economica:wght@700&family=Homemade+Apple&family=IM+Fell+DW+Pica+SC&family=Kaushan+Script&family=Londrina+Shadow&family=Montserrat+Subrayada&family=Oswald:wght@700&family=Permanent+Marker&family=Quicksand&family=Roboto+Condensed:wght@700&family=Teko&family=Vollkorn&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+ @import "modules/flash";
 
  // 変数（色）----------------
 $base-font-color: rgb(51, 51, 51);
