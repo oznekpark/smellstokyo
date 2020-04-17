@@ -4,7 +4,7 @@ RailsAdmin.config do |config|
   #     username == 'foo' && password == 'bar'
   #   end
   # end
-
+  config.parent_controller = 'ApplicationController'
   ### Popular gems integration
 
   ## == Devise ==
