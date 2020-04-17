@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   # attr_accessible :email, :password, :password_confirmation, :remember_me
-  # has_many :products
 end
