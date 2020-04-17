@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "products#home"
   namespace :products do
-    resources :searches, only: [:home, :index, :show]
+    resources :searches, only: :index
   end
   resources :products
 end

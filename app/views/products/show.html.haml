@@ -1,0 +1,33 @@
+.showMain
+  .showMain__Boxes
+    .showMain__Boxes__leftBox
+      = image_tag @product.image, width: 450, height: 450, class: "showMain__Boxes__leftBox__image"
+    .showMain__Boxes__rightBox
+      .showMain__Boxes__rightBox__name
+        = @product.name
+      .showMain__Boxes__rightBox__description
+        = @product.description
+      .showMain__Boxes__rightBox__orderQuantity
+      .showMain__Boxes__rightBox__line
+        .showMain__Boxes__rightBox__line__price
+          = @product.price
+        .showMain__Boxes__rightBox__line__fav
+      .showMain__Boxes__rightBox__addCart
+  .showMain__suggest
+    .showMain__suggest__items
+      WE ALSO SUGGEST YOU
+    .swiper-container
+      .swiper-wrapper
+        .swiper-slide
+          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2019/02/the-one-min-1.jpg', alt: 'swipe01', width: 300, height: 300
+        .swiper-slide
+          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/annick-goutal-il-au-the-min-2.jpg', alt: 'swipe02', width: 300, height: 300
+        .swiper-slide
+          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/acqua-di-parma-arancia-di-capri-min.jpg', alt: 'swipe03', width: 300, height: 300
+        .swiper-slide
+          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2020/02/bleu-de-chanel-min-1024x784.png', alt: 'swipe04', width: 300, height: 300
+      .swiper-pagination
+      .swiper-button-prev
+      .swiper-button-next
+      .swiper-scrollbar
+= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

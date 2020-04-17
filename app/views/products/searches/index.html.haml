@@ -1,6 +1,6 @@
 .index-contents
   .index-contents__selectTab
-    = form_with model: @product, local: true do |f|
+    = form_with(url: products_searches_path, local: true, method: :get) do |f|
       %ul.index-contents__selectTab__selectCategory
         %li.index-contents__selectTab__selectCategory__list
           .index-contents__selectTab__selectCategory__list__description

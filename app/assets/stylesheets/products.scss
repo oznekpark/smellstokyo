@@ -191,6 +191,51 @@ select {
 }
 //index.<end>
 
+//show.<start>
+.showMain {
+  margin-top: 140px;
+  width: 100vw;
+  &__Boxes {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    &__leftBox {
+      width: 40%;
+      text-align: right;
+    }
+    &__rightBox {
+      width: 60%;
+      text-align: left;
+      padding-top: 60px;
+      margin-left: 20px;
+      &__name {
+        width: 90%;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+      }
+      &__description {
+        width: 90%;
+        margin: 10px 10px;
+      }
+    }
+  }
+  &__suggest {
+    width: 1200px;
+    margin: 0 auto;
+    &__items {
+      font-size: 25px;
+      border-top: 1px solid black;
+      margin-top: 20px;
+    }
+  }
+}
+
+
+//show.<end>
+
 
 .login{
   padding-top: 140px;

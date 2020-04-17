@@ -8,11 +8,9 @@ class Product < ApplicationRecord
   belongs_to :use_scene
   validates :name, :description, :image, presence: true
 
-  # belongs_to :user
-
   def self.search(search)
     if search
-      Product.where('text LIKE ?', "%#{search}%")
+      Product.where('name LIKE ?', "%#{search}%")
     else
       Product.all
     end

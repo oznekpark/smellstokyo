@@ -1,6 +1,6 @@
 .index-contents
   .index-contents__selectTab
-    = form_with model: @product, local: true do |f|
+    = form_with(url: products_searches_path, local: true, method: :get) do |f|
       %ul.index-contents__selectTab__selectCategory
         %li.index-contents__selectTab__selectCategory__list
           .index-contents__selectTab__selectCategory__list__description
@@ -45,8 +45,8 @@
         - @products.each do |product|
           %li.index-contents__main__categoryList__innerList__innerBox
             .index-contents__main__categoryList__innerList__innerBox__image
-              = link_to "#", class: "index-contents__main__categoryList__innerList__innerBox__image__link" do
+              = link_to product_path(product.id), class: "index-contents__main__categoryList__innerList__innerBox__image__link" do
                 = image_tag product.image, width: 200, height: 200
             .index-contents__main__categoryList__innerList__innerBox__detail
-              = link_to "#", class: "index-contents__main__categoryList__innerList__innerBox__detail__name" do
+              = link_to product_path(product.id), class: "index-contents__main__categoryList__innerList__innerBox__detail__name" do
                 = product.name
