@@ -150,21 +150,20 @@
   &__main {
     width: 100vw;
     &__categoryList {
-      // padding: 20px;
       width: 1200px;
       margin: 0 auto;
       &__innerList {
         display: flex;
+        justify-content: flex-start;
         flex-wrap: wrap;
-        overflow: hidden;
-        background-color: $background-color;
-        width: 100%;
+        margin-top: 50px;
+        // overflow: hidden;
+        // width: 100%;
         &__innerBox {
-          width: 25%;
-          margin: 8px auto;
+          width: calc(100% / 4);
+          margin: 15px 0;
           &__image {
             text-align: center;
-            height: 200px;
           }
           &__image:hover {
             opacity: 0.6;

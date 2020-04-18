@@ -20,7 +20,7 @@ $(document).ready(function () {
       el: '.swiper-scrollbar',
       hide: true,
       draggable: true
-    },
+    }
     // breakpoints: {
     //   767: {
     //     slidesPerView: 1,
