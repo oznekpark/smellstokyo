@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :searches, only: :index
   end
   resources :products
+  resources :users, only: :show
+  resources :comments, only: :create
 end
