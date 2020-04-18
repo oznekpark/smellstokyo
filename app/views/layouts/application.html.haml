@@ -8,6 +8,7 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/css/swiper.css'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/js/swiper.js'
   %body
     = render 'layouts/notifications'
@@ -46,7 +47,6 @@
             = link_to "#", class: "header__bottom__nav__category__news" do
               NEWS
     = yield
-    
     .footer
       - if user_signed_in?
         %ul.footer__menu

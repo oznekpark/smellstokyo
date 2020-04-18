@@ -30,4 +30,51 @@
       .swiper-button-prev
       .swiper-button-next
       .swiper-scrollbar
-= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  .comments
+    .comments__name
+      = "レビュー(#{@product.comments.length})"
+    - if @comments
+      - @comments.each do |comment|
+        .comments__content
+          .comments__content__postTime
+            = comment.created_at.strftime("%Y年%-m月%-d日")
+          .comments__content__nickName
+            = comment.user.nickname
+          %div{id: "star-rate-#{comment.id}"}
+          :javascript
+            $('#star-rate-#{comment.id}').raty({
+              size: 36,
+              starOff: "#{asset_path('star-off.png')}",
+              starOn: "#{asset_path('star-on.png')}",
+              starHalf: "#{asset_path('star-half.png')}",
+              half: true,
+              readOnly: true,
+              score: "#{comment[:rate]}"
+            });
+          .comments__content__text
+            = comment.text
+  .commentForm
+    - if current_user
+      = form_for [@product, @comment] do |f|
+        = f.hidden_field :product_id, value: @product.id
+        #star.form-group__row
+          = f.hidden_field :rate, id: :review_star
+        :javascript
+          $('#star').raty({
+            size     : 36,
+            starOff: "#{asset_path('star-off.png')}",
+            starOn: "#{asset_path('star-on.png')}",
+            starHalf: "#{asset_path('star-half.png')}",
+            scoreName: 'comment[rate]',
+            half: true,
+          });
+        .col-md-9
+          = f.text_area :text, class: "form-control", rows: "5", placeholder: "レビュー"
+        .form-group__row.justify-content-end
+          = f.submit '投稿', class:"btn btn-success"
+    - else
+      %p レビューの投稿には新規登録/ログインが必要です
+
+
+
+

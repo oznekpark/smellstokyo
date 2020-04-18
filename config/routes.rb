@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   namespace :products do
     resources :searches, only: :index
   end
-  resources :products
+  resources :products do
+    resources :comments, only: :create
+  end
   resources :users, only: :show
-  resources :comments, only: :create
 end

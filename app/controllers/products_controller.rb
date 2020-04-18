@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @comments = @product.comments.includes(:user).order('created_at DESC')
+    @comment = Comment.new
   end
 
 end
