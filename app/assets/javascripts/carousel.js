@@ -1,3 +1,4 @@
+$(document).ready(function () {
   var swiper = new Swiper('.swiper-container', {
     loop: true,
     autoHeight: true,
@@ -26,4 +27,5 @@
     //     spaceBetween: 0
     //   }
     // }
-  });
+  })
+});

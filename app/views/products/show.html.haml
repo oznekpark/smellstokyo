@@ -52,12 +52,12 @@
               score: "#{comment[:rate]}"
             });
           .comments__content__text
-            = comment.text
+            = simple_format(comment.text)
   .commentForm
     - if current_user
       = form_for [@product, @comment] do |f|
         = f.hidden_field :product_id, value: @product.id
-        #star.form-group__row
+        #star.commentForm__rate
           = f.hidden_field :rate, id: :review_star
         :javascript
           $('#star').raty({
@@ -68,10 +68,10 @@
             scoreName: 'comment[rate]',
             half: true,
           });
-        .col-md-9
-          = f.text_area :text, class: "form-control", rows: "5", placeholder: "レビュー"
-        .form-group__row.justify-content-end
-          = f.submit '投稿', class:"btn btn-success"
+        .commentForm__text
+          = f.text_area :text, class: "commentForm__text__area", rows: "5", placeholder: "レビュー"
+        .commentForm__submit
+          = f.submit '投稿', class:"commentForm__submit__btn"
     - else
       %p レビューの投稿には新規登録/ログインが必要です
 
