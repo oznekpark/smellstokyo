@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_raty
+//= require carousel.js
 //= require_tree .

@@ -30,7 +30,7 @@
               %i.fas.fa-shopping-cart
       .header__middle
         .header__middle__site-name
-          = link_to root_path class: "header__middle__site-name__link" do
+          = link_to root_path, class: "header__middle__site-name__link", data: {"turbolinks" => false} do
             Smells Tokyo
       .header__bottom
         %ul.header__bottom__nav
