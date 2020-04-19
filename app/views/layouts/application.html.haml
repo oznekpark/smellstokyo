@@ -16,7 +16,7 @@
       .header__top
         %ul.header__top__nav
           %li.header__top__nav__search
-            = form_with(url: products_searches_path, local: true, method: :get) do |f|
+            = form_with(url: searchFromHeadersForm_products_path, local: true, method: :get) do |f|
               = f.text_field :keyword, class: "header__top__nav__search__box", placeholder: "search"
               = button_tag type: "submit", class: "header__top__nav__search__btn" do
                 %i.fas.fa-search
