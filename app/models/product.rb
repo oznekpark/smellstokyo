@@ -17,4 +17,11 @@ class Product < ApplicationRecord
       Product.all
     end
   end
+
+  scope :get_brand_id, -> brand_id {where(brand_id: brand_id)}
+  scope :get_sex_id, -> sex_id {where(sex_id: sex_id)}
+  scope :get_smell_type_id, -> (smell_type_id) {where(smell_type_id: smell_type_id)}
+  scope :get_main_spice_id, -> (main_spice_id) {where(main_spice_id: main_spice_id)}
+  scope :get_smell_impression_id, -> (smell_impression_id) {where(smell_impression_id: smell_impression_id)}
+  scope :get_use_scene_id, -> (use_scene_id) {where(use_scene_id: use_scene_id)}
 end
