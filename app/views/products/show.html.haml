@@ -31,29 +31,32 @@
       .swiper-button-next
       .swiper-scrollbar
   .comments
-    .comments__name
+    .comments__title
       = "レビュー(#{@product.comments.length})"
     - if @comments
       - @comments.each do |comment|
-        .comments__content
-          .comments__content__postTime
-            = comment.created_at.strftime("%Y年%-m月%-d日")
-          .comments__content__nickName
-            = comment.user.nickname
-          %div{id: "star-rate-#{comment.id}"}
-          :javascript
-            $('#star-rate-#{comment.id}').raty({
-              size: 36,
-              starOff: "#{asset_path('star-off.png')}",
-              starOn: "#{asset_path('star-on.png')}",
-              starHalf: "#{asset_path('star-half.png')}",
-              half: true,
-              readOnly: true,
-              score: "#{comment[:rate]}"
-            });
-          .comments__content__text
+        .comments__each
+          .comments__each__postTime
+            = comment.created_at.strftime("%B %d, %Y")
+          .comments__each__content
+            .comments__each__content__nickName
+              = "投稿者 : #{comment.user.nickname}"
+            %div{id: "star-rate-#{comment.id}"}
+            :javascript
+              $('#star-rate-#{comment.id}').raty({
+                size: 36,
+                starOff: "#{asset_path('star-off.png')}",
+                starOn: "#{asset_path('star-on.png')}",
+                starHalf: "#{asset_path('star-half.png')}",
+                half: true,
+                readOnly: true,
+                score: "#{comment[:rate]}"
+              });
+          .comments__each__text
             = simple_format(comment.text)
   .commentForm
+    .commentForm__title
+      レビュー投稿
     - if current_user
       = form_for [@product, @comment] do |f|
         = f.hidden_field :product_id, value: @product.id
@@ -69,7 +72,7 @@
             half: true,
           });
         .commentForm__text
-          = f.text_area :text, class: "commentForm__text__area", rows: "5", placeholder: "レビュー"
+          = f.text_area :text, class: "commentForm__text__area", placeholder: "レビュー", size: "80x4"
         .commentForm__submit
           = f.submit '投稿', class:"commentForm__submit__btn"
     - else

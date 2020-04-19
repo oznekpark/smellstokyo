@@ -32,7 +32,7 @@ $background-color: #fff;
 }
 
 .header {
-  width: 100vw;
+  width: 100%;
   padding-top: 20px;
   position: relative;
   position: fixed;
@@ -123,9 +123,11 @@ $background-color: #fff;
 }
 
 .footer {
-  width: 100vw;
+  width: 100%;
   margin-top: 100px;
   background-color: $base-font-color;
+  position: relative;
+  bottom: 0;
   &__menu {
     height: 200px;
     display: flex;
