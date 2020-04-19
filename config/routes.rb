@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     collection do
       get 'searchFromHeadersForm'
       get 'searchFromPulldownsForm'
+      get 'indexOfWomenProducts'
+      get 'indexOfMenProducts'
     end
   end
   resources :products do
