@@ -127,6 +127,8 @@ $background-color: #fff;
   margin-top: 100px;
   background-color: $base-font-color;
   position: relative;
+  left: 0;
+  right: 0;
   bottom: 0;
   &__menu {
     height: 200px;

@@ -192,6 +192,7 @@ select {
 .showMain {
   margin-top: 140px;
   width: 100vw;
+  color: $base-font-color;
   &__Boxes {
     display: flex;
     width: 100%;
@@ -208,14 +209,16 @@ select {
       padding-top: 60px;
       margin-left: 20px;
       &__name {
-        width: 90%;
-        font-size: 22px;
+        font-size: 28px;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
+      }
+      &__namejap {
+        text-align: left;
       }
       &__description {
-        width: 90%;
-        margin: 10px 10px;
+        width: 75%;
+        padding-top: 20px;
       }
     }
   }
