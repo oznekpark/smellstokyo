@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_045104) do
+ActiveRecord::Schema.define(version: 2020_04_24_042326) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_045104) do
     t.bigint "use_scene_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["main_spice_id"], name: "index_products_on_main_spice_id"
     t.index ["season_id"], name: "index_products_on_season_id"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_045104) do
     t.index ["smell_impression_id"], name: "index_products_on_smell_impression_id"
     t.index ["smell_type_id"], name: "index_products_on_smell_type_id"
     t.index ["use_scene_id"], name: "index_products_on_use_scene_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "seasons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -108,4 +110,5 @@ ActiveRecord::Schema.define(version: 2020_04_19_045104) do
   add_foreign_key "products", "smell_impressions"
   add_foreign_key "products", "smell_types"
   add_foreign_key "products", "use_scenes"
+  add_foreign_key "products", "users"
 end
