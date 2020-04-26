@@ -1,6 +1,6 @@
 .index-contents
   .index-contents__selectTab
-    = form_with(url: searchFromPulldownsForm_products_path, local: true, method: :get) do |f|
+    = form_with(url: searchFromPulldownsForm_products_path, class: "formFromIndex", local: true, method: :get) do |f|
       %ul.index-contents__selectTab__selectCategory
         %li.index-contents__selectTab__selectCategory__list
           .index-contents__selectTab__selectCategory__list__description

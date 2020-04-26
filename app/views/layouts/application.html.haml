@@ -1,7 +1,7 @@
 !!!
 %html{:lang => "ja"}
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %meta{name: "viewport", content: "width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0"}/
     %title Smellstokyo
     = csrf_meta_tags
@@ -30,22 +30,17 @@
               %i.fas.fa-shopping-cart
       .header__middle
         .header__middle__site-name
-          = link_to root_path, class: "header__middle__site-name__link", data: {"turbolinks" => false} do
-            Smells Tokyo
+          = link_to "Smells Tokyo", root_path, class: "header__middle__site-name__link", data: {"turbolinks" => false}
       .header__bottom
         %ul.header__bottom__nav
           %li.header__bottom__nav__category
-            = link_to indexOfWomenProducts_products_path, class: "header__bottom__nav__category__women" do
-              WOMEN
+            = link_to "WOMEN",indexOfWomenProducts_products_path, class: "header__bottom__nav__category__women" 
           %li.header__bottom__nav__category
-            = link_to indexOfMenProducts_products_path, class: "header__bottom__nav__category__men" do
-              MEN
+            = link_to "MEN",indexOfMenProducts_products_path, class: "header__bottom__nav__category__men"
           %li.header__bottom__nav__category
-            = link_to products_path, class: "header__bottom__nav__category__select" do
-              SELECT
+            = link_to "SELECT",products_path, class: "header__bottom__nav__category__select"
           %li.header__bottom__nav__category
-            = link_to "#", class: "header__bottom__nav__category__news" do
-              NEWS
+            = link_to "NEWS", "#", class: "header__bottom__nav__category__news"
     = yield
     .footer
       - if user_signed_in?
