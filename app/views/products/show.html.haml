@@ -12,9 +12,12 @@
       .showMain__Boxes__rightBox__orderQuantity
       .showMain__Boxes__rightBox__line
         .showMain__Boxes__rightBox__line__price
-          = @product.price
+          = "本体価格  #{convertToJPY(@product.price)}円"
         .showMain__Boxes__rightBox__line__fav
+          = button_tag "☆", type: "submit", class: "showMain__Boxes__rightBox__line__fav__btn"
+      .showMain__Boxes__rightBox__line
       .showMain__Boxes__rightBox__addCart
+        = button_tag "カートに入れる", type: "button", class: "showMain__Boxes__rightBox__addCart__btn" 
   .showMain__suggest
     .showMain__suggest__items
       WE ALSO SUGGEST YOU

@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   # attr_accessible :email, :password, :password_confirmation, :remember_me
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :products
 end

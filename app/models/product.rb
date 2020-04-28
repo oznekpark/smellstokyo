@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   belongs_to :main_spice
   belongs_to :smell_impression
   belongs_to :use_scene
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :user
   validates :name, :description, :image, presence: true
 
