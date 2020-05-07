@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   belongs_to :smell_impression
   belongs_to :use_scene
   has_many :comments, dependent: :destroy
+  has_many :line_items
   validates :name, :description, :image, presence: true
 
   def self.search(search)
