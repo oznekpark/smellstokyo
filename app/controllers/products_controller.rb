@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :move_to_index except: [:home, :index, :indexOfWomenProducts, :indexOfMenProducts, :show, :searchFromHeadersForm, :searchFromPulldownsForm]
+  before_action :move_to_home, except: [:home, :index, :indexOfWomenProducts, :indexOfMenProducts, :show, :searchFromHeadersForm, :searchFromPulldownsForm, :show]
   
   def home
     @products = Product.last(6)
@@ -17,12 +17,6 @@ class ProductsController < ApplicationController
     @products = Product.where(sex_id: 2).or(Product.where(sex_id: 3)).includes(:sex).order('created_at DESC')
   end
 
-  def show
-    @product = Product.find(params[:id])
-    @comments = @product.comments.includes(:user).order('created_at DESC')
-    @comment = Comment.new
-  end
-
   def searchFromHeadersForm
     @products = Product.search(params[:keyword]).order('created_at DESC')
   end
@@ -33,8 +27,14 @@ class ProductsController < ApplicationController
     # @products = Product.get_brand_id(params[:brand_id]).get_sex_id(params[:sex_id]).get_smell_type_id(params[:smell_type_id]).get_main_spice_id(params[:main_spice_id]).get_smell_impression_id(params[:smell_impression_id]).get_use_scene_id(params[:use_scene_id])
   end
 
+  def show
+    @product = Product.find(params[:id])
+    @comments = @product.comments.includes(:user).order('created_at DESC')
+    @comment = Comment.new
+  end
+
   private
-  def move_to_index
+  def move_to_home
     redirect_to action: :home unless user_signed_in?
   end
 end
