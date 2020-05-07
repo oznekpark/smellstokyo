@@ -1,4 +1,13 @@
 - @line_items.each do |line_item|
   - product = line_item.product
-    = product.title
+    = product.name
     = product.quantity
+    = number_to_currency line_item.total_price
+
+    = @cart.total_numer
+
+- if @line_items.count == 0
+  買い物カゴには何も入っていません
+- else
+  = link_to "購入する", new_order_path
+  = link_to "カートをからにする", @cart, method: :delete, data: { confirm: "カートの中身を全て削除してもいいですか?"}

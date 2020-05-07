@@ -23,9 +23,13 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   # POST /line_items.json
+  #セッションからCart情報を取得し、Cart情報に紐ずく商品を登録する、CartとProductを取得しLineItemを追加してトップ画面へ遷移させる、
   def create
+    #カート情報(セッション情報)を取得
     cart = current_cart
+    #注文情報を取得
     product = Product.find(params[:product_id])
+    #すでにカートにあるものかどうかを判断させる
     @line_item = cart.add_product(product.id)
 
     respond_to do |format|

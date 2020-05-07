@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   belongs_to :use_scene
   has_many :comments, dependent: :destroy
   has_many :line_items
+  has_many :order_details
   validates :name, :description, :image, presence: true
 
   def self.search(search)

@@ -1,0 +1,7 @@
+- @line_items.each do |line_item|
+  - product = line_item.product
+    = product.name
+    = product.quantity
+    = number_to_currency line_item.total_price
+
+    = @cart.total_numer
