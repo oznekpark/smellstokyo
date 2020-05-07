@@ -10,12 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_064853) do
+ActiveRecord::Schema.define(version: 2020_05_07_110600) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "destination_first_name", null: false
+    t.string "destination_family_name", null: false
+    t.string "destination_first_name_kana", null: false
+    t.string "destination_family_name_kana", null: false
+    t.integer "postcode", null: false
+    t.integer "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "address_building"
+    t.integer "phone_number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -35,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_04_24_064853) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.string "namejap", null: false
     t.text "description", null: false
     t.text "image", null: false
     t.integer "price"
@@ -49,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_064853) do
     t.bigint "use_scene_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.string "namejap", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["image"], name: "index_products_on_image", length: 255
     t.index ["main_spice_id"], name: "index_products_on_main_spice_id"
@@ -58,7 +83,6 @@ ActiveRecord::Schema.define(version: 2020_04_24_064853) do
     t.index ["smell_impression_id"], name: "index_products_on_smell_impression_id"
     t.index ["smell_type_id"], name: "index_products_on_smell_type_id"
     t.index ["use_scene_id"], name: "index_products_on_use_scene_id"
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "seasons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -105,6 +129,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_064853) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "main_spices"
   add_foreign_key "products", "seasons"
@@ -112,5 +138,4 @@ ActiveRecord::Schema.define(version: 2020_04_24_064853) do
   add_foreign_key "products", "smell_impressions"
   add_foreign_key "products", "smell_types"
   add_foreign_key "products", "use_scenes"
-  add_foreign_key "products", "users"
 end
