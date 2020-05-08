@@ -1,6 +1,5 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
-  has_many :products, through: :line_items
 
   # Cartモデルに商品（LineItem）を登録するメソッド（カート登録機能の実装）
   def add_product(product_id)

@@ -7,8 +7,10 @@ class Product < ApplicationRecord
   belongs_to :smell_impression
   belongs_to :use_scene
   has_many :comments, dependent: :destroy
-  has_many :line_items
   has_many :order_details
+  has_many :line_items
+  before_destroy :ensure_not_referenced_by_any_line_item
+  
   
   #Validation
   validates :name, :description, :image, presence: true

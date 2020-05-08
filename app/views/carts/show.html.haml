@@ -10,21 +10,18 @@
       %th 数量
       %th 小計
   %tbody
-    - @products.each_with_index do |product, index|
+    - @cart.line_items.each do |item|
       %tr
-        %td= index
-        %td= product.image
-        %td= product.name
-        
-        %td= link_to 'Show', cart
-        %td= link_to 'Edit', edit_cart_path(cart)
-        %td= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' }
+        -# %td= i+1
+        -# %td= product.image, width: 50, height: 50
+        %td= item.product.name
+        %td= convertToJPY(item.product.price)
+        %td= item.quantity
+        %td= convertToJPY(item.product.price)
+        %td= link_to 'Show', @cart
+        -# %td= link_to 'Edit', update_item_carts_path(@cart)
+        %td= link_to 'Destroy', @cart, method: :delete, data: { confirm: 'Are you sure?' }
 
--# - @line_items.each do |line_item|
--#   - product = line_item.product
--#     = product.name
--#     = product.quantity
--#     = number_to_currency line_item.total_price
 
 -#     = @cart.total_numer
 

@@ -1,8 +1,12 @@
 class UsersController < ApplicationControllerdef 
   
   def show
-    @nickname = current_user&.nickname
-    @products = current_user&.product
+  end
+
+  def register_card
+  end
+
+  def register_address
   end
 
 end

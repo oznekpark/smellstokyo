@@ -12,49 +12,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/notifications'
-    .header
-      .header__top
-        %ul.header__top__nav
-          %li.header__top__nav__search
-            = form_with(url: searchFromHeadersForm_products_path, local: true, method: :get) do |f|
-              = f.text_field :keyword, class: "header__top__nav__search__box", placeholder: "search"
-              = button_tag type: "submit", class: "header__top__nav__search__btn" do
-                %i.fas.fa-search
-          %li.header__top__nav__account
-            = link_to new_user_session_path, class: "header__top__nav__account__link" do
-              my account
-              %i.fas.fa-user
-          %li.header__top__nav__cart
-            = link_to root_path, class: "header__top__nav__cart__link" do
-              view cart
-              %i.fas.fa-shopping-cart
-      .header__middle
-        .header__middle__site-name
-          = link_to "Smells Tokyo", root_path, class: "header__middle__site-name__link", data: {"turbolinks" => false}
-      .header__bottom
-        %ul.header__bottom__nav
-          %li.header__bottom__nav__category
-            = link_to "WOMEN",indexOfWomenProducts_products_path, class: "header__bottom__nav__category__women" 
-          %li.header__bottom__nav__category
-            = link_to "MEN",indexOfMenProducts_products_path, class: "header__bottom__nav__category__men"
-          %li.header__bottom__nav__category
-            = link_to "SELECT",products_path, class: "header__bottom__nav__category__select"
-          %li.header__bottom__nav__category
-            = link_to "NEWS", "#", class: "header__bottom__nav__category__news"
+    = render 'layouts/header'
     = yield
-    .footer
-      - if user_signed_in?
-        %ul.footer__menu
-          %li.footer__menu__list
-            = link_to "ログアウト", destroy_user_session_path, class: "footer__menu__list", method: :delete 
-          %li.footer__menu__list
-            = link_to "カート確認", "#", class: "footer__menu__list"
-          %li.footer__menu__list
-            = link_to "会員情報修正", edit_user_registration_path, class: "footer__menu__list"
-      - else
-        %ul.footer__menu
-          %li.footer__menu__list
-            = link_to "ログイン", new_user_session_path, class: "footer__menu__list"
-          %li.footer__menu__list
-            = link_to "新規登録", new_user_registration_path, class: "footer__menu__list"
+    = render 'layouts/footer'
     %script{:src => "https://unpkg.com/swiper/js/swiper.min.js"}

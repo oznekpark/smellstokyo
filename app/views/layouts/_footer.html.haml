@@ -1,0 +1,15 @@
+.footer
+  - if user_signed_in?
+    %ul.footer__menu
+      %li.footer__menu__list
+        = link_to "ログアウト", destroy_user_session_path, class: "footer__menu__list", method: :delete 
+      %li.footer__menu__list
+        = link_to "カート確認", "#", class: "footer__menu__list"
+      %li.footer__menu__list
+        = link_to "会員情報修正", edit_user_registration_path, class: "footer__menu__list"
+  - else
+    %ul.footer__menu
+      %li.footer__menu__list
+        = link_to "ログイン", new_user_session_path, class: "footer__menu__list"
+      %li.footer__menu__list
+        = link_to "新規登録", new_user_registration_path, class: "footer__menu__list"

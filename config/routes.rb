@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   
   end
   
-  resources :users, only: :show
+  resources :users, only: :show do
+    collection do
+      get 'register_card'
+      get 'register_address'
+    end
+  end
 
   resources :line_items
   
