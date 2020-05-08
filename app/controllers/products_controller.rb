@@ -31,6 +31,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user).order('created_at DESC')
     @comment = Comment.new
+    @lineitem = LineItem.new
+    @cart = Cart.new
   end
 
   private

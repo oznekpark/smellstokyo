@@ -9,7 +9,14 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :line_items
   has_many :order_details
+  
+  #Validation
   validates :name, :description, :image, presence: true
+
+  #cart機能
+  before_destroy :ensure_not_referenced_by_any_line_item
+
+
 
   def self.search(search)
     if search
@@ -25,4 +32,16 @@ class Product < ApplicationRecord
   scope :get_main_spice_id, -> (main_spice_id) {where(main_spice_id: main_spice_id)}
   scope :get_smell_impression_id, -> (smell_impression_id) {where(smell_impression_id: smell_impression_id)}
   scope :get_use_scene_id, -> (use_scene_id) {where(use_scene_id: use_scene_id)}
+
+  private
+
+  def ensure_not_referenced_by_any_line_item
+    # 関連する品目が空でないか検証
+    if line_items.empty?
+      return true
+    else
+      errors.add(:base, "品目が存在します")
+      return false
+    end
+  end
 end

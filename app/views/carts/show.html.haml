@@ -1,13 +1,35 @@
-- @line_items.each do |line_item|
-  - product = line_item.product
-    = product.name
-    = product.quantity
-    = number_to_currency line_item.total_price
+%h1 cart
 
-    = @cart.total_numer
+%table{border: "1", style: "border-collapse: collapse"}
+  %thead
+    %tr
+      %th
+      %th 
+      %th 商品
+      %th 金額
+      %th 数量
+      %th 小計
+  %tbody
+    - @products.each_with_index do |product, index|
+      %tr
+        %td= index
+        %td= product.image
+        %td= product.name
+        
+        %td= link_to 'Show', cart
+        %td= link_to 'Edit', edit_cart_path(cart)
+        %td= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' }
 
-- if @line_items.count == 0
-  買い物カゴには何も入っていません
-- else
-  = link_to "購入する", new_order_path
-  = link_to "カートをからにする", @cart, method: :delete, data: { confirm: "カートの中身を全て削除してもいいですか?"}
+-# - @line_items.each do |line_item|
+-#   - product = line_item.product
+-#     = product.name
+-#     = product.quantity
+-#     = number_to_currency line_item.total_price
+
+-#     = @cart.total_numer
+
+-# - if @line_items.count == 0
+-#   買い物カゴには何も入っていません
+-# - else
+-#   = link_to "購入する", new_order_path
+-#   = link_to "カートをからにする", @cart, method: :delete, data: { confirm: "カートの中身を全て削除してもいいですか?"}
