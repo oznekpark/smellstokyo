@@ -17,6 +17,7 @@ class CartsController < ApplicationController
   end
 
   def destroy
+    @cart = current_cart
     @cart.destroy
     redirect_to current_cart
   end
