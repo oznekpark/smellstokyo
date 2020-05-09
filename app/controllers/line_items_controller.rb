@@ -20,12 +20,14 @@ class LineItemsController < ApplicationController
     #カート情報(セッション情報)を取得
     @cart = current_cart
     #注文情報を取得
-    product = Product.find(params[:product_id])
+    product = Product.find(params[:line_item][:product_id])
+    quantity = Product.find(params[:line_item][:quantity])
     #すでにカートにあるものかどうかを判断させる
     @line_item = @cart.add_product(product.id)
 
     respond_to do |format|
       if @line_item.save
+        #cars/:idに遷移する
         format.html { redirect_to @line_item.cart, notice: 'カートに商品が追加されました。' }
         format.json { render :show, status: :created, location: @line_item }
       else

@@ -1,26 +1,27 @@
-%h1 cart
+.cart
+  %h1 cart
 
-%table{border: "1", style: "border-collapse: collapse"}
-  %thead
-    %tr
-      %th
-      %th 
-      %th 商品
-      %th 金額
-      %th 数量
-      %th 小計
-  %tbody
-    - @cart.line_items.each do |item|
+  %table{border: "1", style: "border-collapse: collapse"}
+    %thead
       %tr
-        -# %td= i+1
-        -# %td= product.image, width: 50, height: 50
-        %td= item.product.name
-        %td= convertToJPY(item.product.price)
-        %td= item.quantity
-        %td= convertToJPY(item.product.price)
-        %td= link_to 'Show', @cart
-        -# %td= link_to 'Edit', update_item_carts_path(@cart)
-        %td= link_to 'Destroy', @cart, method: :delete, data: { confirm: 'Are you sure?' }
+        %th
+        %th
+        %th 商品
+        %th 金額
+        %th 数量
+        %th 小計
+    %tbody
+      - @line_items.each do |item|
+        %tr
+          %td= "a"
+          %td= "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          %td= item.product.name
+          %td= convertToJPY(item.product.price)
+          %td= item.quantity
+          %td= convertToJPY(item.product.price)
+          -# %td= link_to 'Show', @cart
+          -# %td= link_to 'Edit', update_item_carts_path(@cart)
+          -# %td= link_to 'Destroy', @cart, method: :delete, data: { confirm: 'Are you sure?' }
 
 
 -#     = @cart.total_numer

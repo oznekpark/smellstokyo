@@ -2,8 +2,7 @@ class CartsController < ApplicationController
   before_action :set_line_item, only: [:add_item, :update_item, :delete_item]
 
   def show
-    @cart = Cart.find(params[:id])
-    line_items = current_cart.line_items
+    @line_items = current_cart.line_items
     # @carts = Cart.includes(:product, :line_item)
   end
 

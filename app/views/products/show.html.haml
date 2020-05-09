@@ -3,7 +3,7 @@
     .showMain__Boxes__leftBox
       = image_tag @product.image, width: 450, height: 450, class: "showMain__Boxes__leftBox__image"
     .showMain__Boxes__rightBox
-      = form_with url: line_items_path, local: true do |f|
+      = form_with model: @line_item, local: true do |f|
         .showMain__Boxes__rightBox__name
           = @product.name
         .showMain__Boxes__rightBox__namejap

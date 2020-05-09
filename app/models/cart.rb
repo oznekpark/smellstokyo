@@ -6,6 +6,10 @@ class Cart < ApplicationRecord
     line_items.find_or_initialize_by(product_id: product_id)
   end
 
+  def add_quantiy(quantity)
+    line_items.find_or_initialize_by(quantity: quantity)
+  end
+
   #Cartモデルにカートに含まれる全ての商品の合計金額を表示させるためのメソッド
   def total_price
     line_items.to_a.sum{|item| item.total_price}
