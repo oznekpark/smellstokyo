@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 2020_05_07_150041) do
   end
 
   create_table "line_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "quantity", default: 0, null: false
     t.bigint "product_id"
     t.bigint "cart_id"
-    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_line_items_on_cart_id"

@@ -26,11 +26,9 @@ Rails.application.routes.draw do
 
   resources :line_items
   
-  resources :carts, only: :show do
+  resources :carts, only: [:show, :update, :destroy] do
     collection do
       post 'add_item'
-      post 'update_item'
-      delete 'delete_item'
     end
   end
 

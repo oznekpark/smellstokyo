@@ -1,33 +1,34 @@
 .cart
-  %h1 cart
-
-  %table{border: "1", style: "border-collapse: collapse"}
-    %thead
-      %tr
-        %th
-        %th
-        %th 商品
-        %th 金額
-        %th 数量
-        %th 小計
-    %tbody
-      - @line_items.each do |item|
-        %tr
-          %td= "a"
-          %td= "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-          %td= item.product.name
-          %td= convertToJPY(item.product.price)
-          %td= item.quantity
-          %td= convertToJPY(item.product.price)
-          -# %td= link_to 'Show', @cart
-          -# %td= link_to 'Edit', update_item_carts_path(@cart)
-          -# %td= link_to 'Destroy', @cart, method: :delete, data: { confirm: 'Are you sure?' }
-
-
--#     = @cart.total_numer
-
--# - if @line_items.count == 0
--#   買い物カゴには何も入っていません
--# - else
--#   = link_to "購入する", new_order_path
--#   = link_to "カートをからにする", @cart, method: :delete, data: { confirm: "カートの中身を全て削除してもいいですか?"}
+  .cart__content
+    .cart__content__title
+      CART
+      - if @line_items.count == 0
+        .cart__content__nothing
+          買い物カゴには何も入っていません。
+        .cart__content__goSelect
+          = link_to "香水を選ぶ", products_path
+      - else
+        .cart__content__message
+          数量を変更する際は、数量を入力後、修正ボタンを押してください。
+        %table.cart__content__table{border: 1}
+          %thead
+            %tr
+              %th &nbsp;
+              %th 製品名
+              %th 数量
+              %th
+              %th 価格
+              %th キャンセル
+          %tbody
+            - @line_items.each do |line_item|
+              %tr
+                %td= image_tag line_item.product.image, width: 100, height: 100
+                %td= line_item.product.name
+                %td= line_item.quantity
+                %td= link_to "修正", line_item_path(line_item), method: :post
+                %td= "#{convertToJPY(line_item.product.price)}円"
+                %td= link_to '削除する', line_item_path(line_item), method: :delete, data: { confirm: '削除しますか?' }
+    = "total : #{convertToJPY(@cart.total_price)}円"
+    = link_to "カートを空にする", cart_path(@cart), method: :delete, data: { confirm: "カートの中身を全て削除してもいいですか?"}
+    = link_to "買い物を続ける", products_path
+    = link_to "レジに進む", new_order_path

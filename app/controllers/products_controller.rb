@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   
   def home
     @products = Product.last(6)
+    @cart = current_cart
   end
 
   def index
@@ -31,7 +32,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user).order('created_at DESC')
     @comment = Comment.new
-    @line_item = LineItem.new
     @cart = Cart.new
   end
 

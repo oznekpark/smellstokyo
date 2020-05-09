@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
 
   #注文入力画面
   def new
+    @line_items = current_cart.line_items
+    @cart = current_cart
   end
 
   #注文の登録
@@ -29,6 +31,7 @@ class OrdersController < ApplicationController
       redirect_to root_path, alert: "注文が正常に登録されました"
     else
       redirect_to root_path, alert: "注文の登録ができませんでした"
+    end
   end
 
   #確認画面
