@@ -11,21 +11,24 @@ class Product < ApplicationRecord
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
   
-  
   #Validation
   validates :name, :description, :image, presence: true
 
   #cart機能
   before_destroy :ensure_not_referenced_by_any_line_item
 
-
-
+  #ヘッダー検索
   def self.search(search)
     if search
-      Product.where('name LIKE ?', "%#{search}%")
+      Product.where("(name LIKE ?) OR (namejap LIKE ?)", "%#{search}%", "%#{search}%")
     else
       Product.all
     end
+  end
+
+  #プルダウン検索
+  def self.choose(brand, sex, smell_type, main_spice, smell_impression, use_scene)
+    Product.where("brand_id = ? or sex_id = ? or smell_type_id = ? or main_spice_id = ? or smell_impression_id = ? or use_scene_id = ?", brand, sex, smell_type, main_spice, smell_impression, use_scene)
   end
 
   scope :get_brand_id, -> brand_id {where(brand_id: brand_id)}

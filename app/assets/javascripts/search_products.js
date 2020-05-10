@@ -10,13 +10,13 @@
 //   });
 // });
 
-$(function() {
-  $(".index-contents__selectTab__selectBtn__btn").click(function(e){
-    e.preventDefault();
-    const str1 = $("#brand_id").val();
-    $(".index-contents__main__categoryList__innerList__innerBox").text(str1)
-  })
-});
+// $(function() {
+//   $(".index-contents__selectTab__selectBtn__btn").click(function(e){
+//     e.preventDefault();
+//     const str1 = $("#brand_id").val();
+//     $(".index-contents__main__categoryList__innerList__innerBox").text(str1)
+//   })
+// });
 
 // $('#brand_id').on('change', function(){
 //   console.log("ボタンが押されました");
