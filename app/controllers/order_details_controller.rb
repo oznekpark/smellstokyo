@@ -1,28 +1,20 @@
 class OrderDetailsController < ApplicationController
   before_action :set_order_detail, only: [:show, :edit, :update, :destroy]
 
-  # GET /order_details
-  # GET /order_details.json
   def index
     @order_details = OrderDetail.all
   end
 
-  # GET /order_details/1
-  # GET /order_details/1.json
   def show
   end
 
-  # GET /order_details/new
   def new
     @order_detail = OrderDetail.new
   end
 
-  # GET /order_details/1/edit
   def edit
   end
 
-  # POST /order_details
-  # POST /order_details.json
   def create
     @order_detail = OrderDetail.new(order_detail_params)
 
@@ -37,8 +29,6 @@ class OrderDetailsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /order_details/1
-  # PATCH/PUT /order_details/1.json
   def update
     respond_to do |format|
       if @order_detail.update(order_detail_params)

@@ -1,35 +1,23 @@
 .cart {
   width: 100%;
   &__content {
-    width: 800px;
+    width: 860px;
     margin: 0 auto;
-    margin-top: 200px;
+    margin-top: 160px;
     &__title {
       text-align: center;
       font-size: 26px;
       margin-bottom: 50px;
+      font-weight: bold;
+      color: $base-font-color;
     }
     &__nothing {
       text-align: center;
-      font-size: 15px;
-      margin-bottom: 310px;
-    }
-    &__message {
-      font-size: 15px;
-      margin-bottom: 10px;
-      color: $base-font-color;
-    }
-    &__total {
-      color: $base-font-color;
-      text-align: right;
-      margin-top: 40px;
-      padding-bottom: 7px;
-      font-size: 20px;
-      font-weight: bold;
-      border-bottom: solid 1px rgb(63, 63, 63);
+      font-size: 18px;
+      padding: 100px 0 200px;
     }
     &__options {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       text-align: center;
       font-size: 15px;
       &__link {
@@ -42,11 +30,40 @@
         opacity: 0.7;
       }
     }
+    &__message {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: $base-font-color;
+      text-align: center;
+    }
+    &__total {
+      color: $base-font-color;
+      text-align: right;
+      margin-top: 40px;
+      padding-bottom: 7px;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: solid 1px rgb(63, 63, 63);
+    }
+    &__order {
+      text-align: center;
+      width: 600px;
+      height: 50px;
+      margin: 0 auto;
+      background-color: $base-font-color;
+      margin-top: 40px;
+      &__btn {
+        color: $background-color;
+        font-weight: bold;
+        line-height: 50px;
+      }
+    }
   }
 }
 
 table {
   width: 100%;
+  color: $base-font-color;
 }
 
 th,

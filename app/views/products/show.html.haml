@@ -15,7 +15,7 @@
           = f.select :quantity, stock_array_maker(@stock), {include_blank: "選択してください"}, {class: "showMain__Boxes__rightBox__orderQuantity__form"} 
         .showMain__Boxes__rightBox__line
           .showMain__Boxes__rightBox__line__price
-            = "本体価格 : #{convertToJPY(@product.price)}円"
+            = "本体価格 : ¥#{convertToJPY(@product.price)}"
           .showMain__Boxes__rightBox__line__fav
             -# = button_tag "☆", type: "submit", class: "showMain__Boxes__rightBox__line__fav__btn"
         .showMain__Boxes__rightBox__line

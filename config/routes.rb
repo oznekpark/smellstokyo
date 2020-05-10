@@ -14,7 +14,6 @@ Rails.application.routes.draw do
       get 'indexOfMenProducts'
     end
     resources :comments
-  
   end
   
   resources :users, only: :show do
@@ -32,7 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:new, :create, :show] do
+  resources :orders, only: [:new, :create, :show, :index] do
     collection do
       post 'confirm'
     end
