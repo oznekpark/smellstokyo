@@ -1,4 +1,5 @@
-class UsersController < ApplicationControllerdef 
+class UsersController < ApplicationControllerdef
+  before_action :set_cart
   
   def show
   end
@@ -9,4 +10,8 @@ class UsersController < ApplicationControllerdef
   def register_address
   end
 
+  private
+  def set_cart
+    @cart = current_cart
+  end
 end

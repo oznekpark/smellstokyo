@@ -11,7 +11,7 @@
           my account
           %i.fas.fa-user
       %li.header__top__nav__cart
-        = link_to "#", class: "header__top__nav__cart__link" do
+        = link_to cart_path(@cart.id), class: "header__top__nav__cart__link" do
           view cart
           %i.fas.fa-shopping-cart
   .header__middle

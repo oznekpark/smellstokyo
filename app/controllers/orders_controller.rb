@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm]
+  before_action :set_cart
 
   #注文入力画面
   def new
@@ -51,5 +52,9 @@ class OrdersController < ApplicationController
 
     def set_order
       @order = Order.find(params[:id])
+    end
+
+    def set_cart
+      @cart = current_cart
     end
 end

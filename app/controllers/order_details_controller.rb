@@ -41,8 +41,6 @@ class OrderDetailsController < ApplicationController
     end
   end
 
-  # DELETE /order_details/1
-  # DELETE /order_details/1.json
   def destroy
     @order_detail.destroy
     respond_to do |format|

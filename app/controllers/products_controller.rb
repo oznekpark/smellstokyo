@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   before_action :move_to_home, except: [:home, :index, :indexOfWomenProducts, :indexOfMenProducts, :searchFromHeadersForm, :searchFromPulldownsForm, :show]
-  
+  before_action :set_cart
+
   def home
     @products = Product.last(6)
-    @cart = current_cart
   end
 
   def index
@@ -30,11 +30,14 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user).order('created_at DESC')
     @comment = Comment.new
-    @cart = Cart.new
   end
 
   private
   def move_to_home
     redirect_to action: :home unless user_signed_in?
+  end
+
+  def set_cart
+    @cart = current_cart
   end
 end
