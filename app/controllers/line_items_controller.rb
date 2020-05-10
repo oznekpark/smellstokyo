@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: [:update, :destroy]
 
   def index
     @line_items = LineItem.all
@@ -33,12 +33,9 @@ class LineItemsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     @line_item.update(quantity: params[:quantity].to_i)
-    redirect_to current_cart
+    redirect_to current_cart 
   end
 
   def destroy

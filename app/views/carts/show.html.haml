@@ -6,28 +6,33 @@
       .cart__content__nothing
         No Items here..
     - else
+      .cart__content__options
+        = link_to "カートを空にする", cart_path(@cart), method: :delete, data: { confirm: "カートの中身を全て削除してもいいですか?"}, class: "cart__content__options__link"
+        = link_to "買い物を続ける", products_path, class: "cart__content__options__link"
+        = link_to "レジに進む", new_order_path, class: "cart__content__options__link"
       .cart__content__message
-        数量を変更する際は、数量を入力後、修正ボタンを押してください。
+        数量を変更する際は、数量を選択後、変更ボタンを押してください。
       %table.cart__content__table{border: 1}
         %thead.cart__content__table__head
           %tr.cart__content__table__tr
             %th &nbsp;
             %th Item
-            %th{colspan: 2} Qty
+            %th Qty
             %th price
-            %th /
+            %th &nbsp;
         %tbody.cart__content__table__body
           - @line_items.each do |line_item|
             %tr.cart__content__table__tr
               %td= image_tag line_item.product.image, width: 100, height: 100
               %td= line_item.product.name
-              %td.qty= line_item.quantity
-              %td.mdfy= button_to "修正", line_item_path(line_item), method: :post
+              %td
+                %table.itemQuantity
+                  = form_with url: line_item_path(line_item), method: :patch, local: true do |f|
+                    %tbody
+                      %tr
+                        %td= f.number_field :quantity ,placeholder: "#{line_item.quantity}", value: "#{line_item.quantity}", min: 1, max: line_item.product.stock_quantity
+                        %td= f.submit "変更"
               %td= "#{convertToJPY(line_item.product.price)}円"
               %td= button_to '削除', line_item_path(line_item), method: :delete, data: { confirm: '削除しますか?' }
       .cart__content__total
-        = "total : #{convertToJPY(@cart.total_price)}円"
-      .cart__content__options
-        = link_to "カートを空にする", cart_path(@cart), method: :delete, data: { confirm: "カートの中身を全て削除してもいいですか?"}, class: "cart__content__options__link"
-        = link_to "買い物を続ける", products_path, class: "cart__content__options__link"
-        = link_to "レジに進む", new_order_path, class: "cart__content__options__link"
+        = "TOTAL : #{convertToJPY(@cart.total_price)}円"
