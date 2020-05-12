@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    confirmations: 'users/confirmations',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
   
   root 'products#home'
   
