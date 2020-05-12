@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_line_item, only: [:add_item, :destroy]
+  before_action :set_user
 
   def show
     @line_items = current_cart.line_items
@@ -27,6 +28,11 @@ class CartsController < ApplicationController
     def set_line_item
       @line_item = current_cart.line_items.find_by(product_id: params[:product_id])
     end
+
+    def set_user
+      @user = current_user
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])

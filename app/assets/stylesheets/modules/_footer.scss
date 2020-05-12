@@ -2,10 +2,7 @@
   width: 100%;
   margin-top: 100px;
   background-color: $base-font-color;
-  position: relative;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: bottom;
   &__menu {
     height: 200px;
     display: flex;

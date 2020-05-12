@@ -42,3 +42,44 @@
 .actions {
   margin-bottom: 20px;
 }
+
+//show
+.myPage {
+  width: 100%;
+  &__content {
+    width: 860px;
+    margin: 0 auto;
+    margin-top: 160px;
+    &__title {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 50px;
+      font-weight: bold;
+      color: $base-font-color;
+    }
+    &__box {
+      width: 100%;
+      display: flex;
+      &__left{
+        width: 20%;
+        &__menu {
+          padding-top: 30px;
+          padding-left: 5px;
+          &__list {
+            font-size: 15px;
+            padding-top: 20px;
+            padding-left: 5px;
+            border-bottom: solid 1px rgb(120, 120, 120);
+          }
+        }
+      }
+      &__right {
+        width: 80%;
+        &__message {
+          padding-left: 190px;
+          padding-top: 100px;
+        }
+      }
+    }
+  }
+}

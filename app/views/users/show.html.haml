@@ -1,1 +1,22 @@
-ユーザーページです。
+.myPage
+  .myPage__content
+    .myPage__content__title
+      MY PAGE
+    .myPage__content__box
+      .myPage__content__box__left
+        %ul.myPage__content__box__left__menu
+          %li.myPage__content__box__left__menu__list
+            = link_to "MY PAGE トップ", user_path(@user.id)
+          %li.myPage__content__box__left__menu__list
+            = link_to "注文履歴", "#"
+          %li.myPage__content__box__left__menu__list
+            = link_to "送付先住所", "#"
+          %li.myPage__content__box__left__menu__list
+            = link_to "支払方法", "#"
+          %li.myPage__content__box__left__menu__list
+            = link_to "アカウント詳細", edit_user_registration_path
+          %li.myPage__content__box__left__menu__list
+            = link_to "ログアウト", user_registration_path, method: :delete
+      .myPage__content__box__right
+        .myPage__content__box__right__message
+          = "#{@nickname}さん、こんにちは！"
