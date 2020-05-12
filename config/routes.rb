@@ -42,4 +42,8 @@ Rails.application.routes.draw do
   end 
 
   resources :order_details
+  
+  resources :cards, only: [:new, :create, :show, :destroy] 
+
+  resources :addresses
 end

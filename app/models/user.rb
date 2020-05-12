@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :comments, dependent: :destroy
-  has_one :credit_card, dependent: :destroy
+  has_one :card, dependent: :destroy
   has_one :address, dependent: :destroy
 end

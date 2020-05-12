@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @nickname = current_user.nickname
+    @card = Card.where(user_id: current_user.id).first if @card.present?
   end
 
   def register_card
