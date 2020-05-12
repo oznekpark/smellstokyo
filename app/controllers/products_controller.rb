@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :move_to_home, except: [:home, :index, :indexOfWomenProducts, :indexOfMenProducts, :searchFromHeadersForm, :searchFromPulldownsForm, :show]
   before_action :set_cart
+  before_action :set_user
 
   def home
     @products = Product.last(6)
@@ -39,5 +40,9 @@ class ProductsController < ApplicationController
 
   def set_cart
     @cart = current_cart
+  end
+
+  def set_user
+    @user = current_user if user_signed_in?
   end
 end
