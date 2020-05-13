@@ -2,17 +2,17 @@
 //カード登録ページ
 .cardNew {
   width: 100%;
-  padding-top: 160px;
 }
 .title {
-  text-align: center;
-  padding: 20px 0;
+  padding: 20px 40px;
   font-weight: bold;
   font-size: 20px;
+  width: 50%;
+  margin: 0 auto;
 }
 .cardForm {
-  padding: 40px 0;
-  width: 30%;
+  padding: 20px 0;
+  width: 50%;
   margin: 0 auto;
   &__number {
     padding-bottom: 10px;
@@ -21,7 +21,7 @@
     padding-bottom: 10px;
   }
   &__expirationdate {
-    padding-top: 40px;
+    padding-top: 20px;
     &__details {
       padding-bottom: 10px;
     }
@@ -30,7 +30,7 @@
     }
   }
   &__securitycode {
-    padding-top: 40px;
+    padding-top: 20px;
     &__details__title {
       padding-bottom: 10px;
     }
@@ -42,11 +42,9 @@
     }
   }
 }
-
 #card_token {
   padding-top: 40px;
 }
-
 #token_submit {
   width: 100%;
   background: rgb(230, 67, 67);
@@ -54,25 +52,17 @@
   color: $background-color;
   height: 50px;
 }
-
 .cvc {
   width: 100%;
   height: 40px;
   border-radius: 3px;
 }
-
-#exp_month {
-  width: 40%;
-  height: 40px;
-  border-radius: 3px;
-}
-
+#exp_month,
 #exp_year {
   width: 40%;
   height: 40px;
   border-radius: 3px;
 }
-
 .must_check {
   background-color: rgb(230, 67, 67);
   padding: 2px 4px;
@@ -80,7 +70,6 @@
   color: $background-color;
   font-size: 12px;
 }
-
 .form-group__input {
   width: 100%;
   height: 40px;
@@ -90,39 +79,46 @@
 //登録カード確認ページ
 .payment {
   width: 100%;
-  padding-top: 160px;
   &__content {
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     &__title {
-      text-align: center;
-  padding: 20px 0;
-  font-weight: bold;
-  font-size: 20px;
-    }
-    &__cardImage {
-      padding-top: 10px;
-    }
-    &__details {
+      padding: 20px 40px;
+      font-weight: bold;
+      font-size: 20px;
       width: 100%;
-      &__cardNumber {
-        font-size: 0.9em;
-        font-weight: lighter;
+      margin: 0 auto;
+    }
+    &__box {
+      padding-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      &__cardImage {
+        padding-top: 30px;
+        padding-left: 40px;
       }
-      &__cardMMYY {
-        font-size: 0.9em;
-        font-weight: lighter;
-        padding-top: 10px;
+      &__details {
+        padding-left: 30px;
+        &__cardNumber {
+          padding-top: 20px;
+        }
+        &__cardMMYY {
+          padding-top: 10px;
+        }
       }
     }
   }
   &__cardDelete {
-    padding: 30px 0 0 120px;
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px 0 0 40px;
     &__deleteBtn {
-      background-color: $background-color;
-      display: block;
       border-radius: 2px;
-      padding: 1px;
+      padding: 4px;
+    }
+    &__deleteBtn:hover {
+      opacity: 0.7;
     }
   }
 }

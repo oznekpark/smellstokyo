@@ -2,6 +2,7 @@ class CardsController < ApplicationController
   before_action :set_card, only: [:new, :show, :destroy]
   before_action :set_payjpSecretKey, except: :new
   before_action :set_cart
+  before_action :set_user
 
   require "payjp"
 
@@ -73,5 +74,9 @@ class CardsController < ApplicationController
 
   def set_cart
     @cart = current_cart
+  end
+
+  def set_user
+    @user = current_user
   end
 end
