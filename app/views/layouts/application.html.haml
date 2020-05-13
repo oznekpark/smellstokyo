@@ -12,6 +12,7 @@
     = include_gon(init: true)
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{charset: "UTF-8", src: "https://yubinbango.github.io/yubinbango/yubinbango.js"}
   %body
     = render 'layouts/notifications'
     = render 'layouts/header'

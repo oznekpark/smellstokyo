@@ -1,1 +1,129 @@
+.addressIndex {
+  width: 100%;
+  &__content {
+    width: 60%;
+    margin: 0 auto;
+    padding-left: 40px;
+    &__title {
+      padding: 20px 40px;
+      font-weight: bold;
+      font-size: 20px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    &__details {
+      width: 100%;
+      &__postCode {
+        padding-bottom: 10px;
+      }
+      &__address {
+        padding-bottom: 10px;
+      }
+      &__receiver {
+        padding-bottom: 10px;
+      }
+    }
+    &__edit {
+      border-radius: 2px;
+      padding: 4px;
+    }
+    &__edit:hover {
+      opacity: 0.7;
+    }
+  }
+}
 
+.addressForm {
+  width: 100%;
+  &__content {
+    width: 60%;
+    margin: 0 auto;
+    padding-left: 40px;
+    &__title {
+      padding: 20px 40px;
+      font-weight: bold;
+      font-size: 20px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+.flex {
+  display: flex;
+}
+.must_check {
+  background-color: rgb(230, 67, 67);
+  margin-left: 5px;
+  border-radius: 2px;
+  color: $background-color;
+  font-size: 12px;
+}
+#text_field {
+  margin-left: 20px;
+}
+.fieldForm {
+  padding-top: 4px;
+}
+.addressCategory {
+  padding-top: 20px;
+}
+.addressForm__content__submit{
+  padding-left: 70px;
+  &__btn {
+  padding: 2px 4px;
+  border-radius: 3px;
+  }
+}
+
+
+// .addressForm
+//   .addressForm__content
+//     .addressForm__content__title
+//       住所情報登録
+//     = form_with model: @address, id: 'new_sending_destination',local: true, class: "h-adr" do |f|
+//       %span.p-country-name{style: "display:none;"} Japan
+//       -# = render "devise/shared/error_messages", resource: @address
+//       .addressForm__content__name.flex
+//         = f.label :"送付先氏名(全角)", id: "label"
+//         .must_check 必須
+//       .flex
+//         = f.text_field :destination_family_name, autofocus: true, placeholder: " 例）佐藤", class: "addressForm__content__name__fa", id: "text_field"
+//         = f.text_field :destination_first_name, autofocus: true, placeholder: " 例）三郎", class: "addressForm__content__name__fi", id: "text_field"
+//       .addressForm__content__namekana.flex
+//         = f.label :"送付先氏名かな(全角)", id: "label"
+//         .must_check 必須
+//       .flex
+//         = f.text_field :destination_family_name_kana, autofocus: true, placeholder: " 例）さとう", class: "addressForm__content__namekana__fa", id: "text_field"
+//         = f.text_field :destination_first_name_kana, autofocus: true, placeholder: " 例）さぶろう", class: "addressForm__content__namekana__fi", id: "text_field"
+//       .addressForm__content__post.flex
+//         = f.label :郵便番号, id: "label"
+//         .must_check 必須
+//       .addressForm__content__postField
+//         = f.text_field :postcode, autofocus: true, placeholder: " 自動入力", class: "addressForm__content__post__input p-postal-code", size: 7, maxlength: 7, id: "text_field"
+//       .addressForm__content__prefecture.flex
+//         = f.label :都道府県, id: "label"
+//         .must_check 必須
+//       .addressForm__content__prefectureField
+//         = f.text_field :prefecture_code, class: "addressForm__content__prefecture__input p-region", id: "text_field"
+//       .addressForm__content__city.flex
+//         = f.label :市区町村, id: "label"
+//         .must_check 必須
+//       .addressForm__content__cityField
+//         = f.text_field :address_city, autofocus: true, class: "addressForm__content__city__input p-locality", id: "text_field"
+//       .addressForm__content__street.flex
+//         = f.label :番地, id: "label"
+//         .must_check 必須
+//       .addressForm__content__streetField
+//         = f.text_field :address_street, autofocus: true, placeholder: " 番地", class: "addressForm__content__street__input p-street-address", id: "text_field"
+//       .addressForm__content__building.flex
+//         = f.label :建物, id: "label"
+//         %span 任意
+//       .addressForm__content__buildingField
+//         = f.text_field :address_building, autofocus: true, placeholder: " 例）マンション名など", class: "addressForm__content__building__input p-extended-address", id: "text_field"
+//       .addressForm__content__telnum.flex
+//         = f.label :電話番号, id: "label"
+//         %span 任意
+//       .addressForm__content__telnumField
+//         = f.text_field :phone_number, autofocus: true, placeholder: " 例）09012345678", class: "addressForm__content__telnum", id: "text_field"
+//       .addressForm__content__submit
+//         = f.submit "登録する", class: "addressForm__content__submit__btn" 
