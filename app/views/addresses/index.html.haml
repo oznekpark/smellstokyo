@@ -34,4 +34,4 @@
                 = link_to "修正する", edit_address_path(@address.id)
             - else
               .addressIndex__content__nothing
-                = link_to "登録する", new_address_path, data: {"turbolinks"=>false} 
+                = link_to "登録する", new_address_path, data: {"turbolinks"=>false}, class: "addressIndex__content__nothing__btn"

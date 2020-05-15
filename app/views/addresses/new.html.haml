@@ -28,13 +28,13 @@
               .addressForm__content__name.flex
                 = f.label :"送付先氏名(全角)", id: "label"
                 .must_check 必須
-              .flex
+              .addressForm__content__name
                 = f.text_field :destination_family_name, autofocus: true, placeholder: " 例）佐藤", class: "addressForm__content__name__fa", id: "text_field"
                 = f.text_field :destination_first_name, autofocus: true, placeholder: " 例）三郎", class: "addressForm__content__name__fi", id: "text_field"
               .addressForm__content__namekana.flex
                 = f.label :"送付先氏名かな(全角)", id: "label"
                 .must_check 必須
-              .flex
+              .addressForm__content__namekana
                 = f.text_field :destination_family_name_kana, autofocus: true, placeholder: " 例）さとう", class: "addressForm__content__namekana__fa", id: "text_field"
                 = f.text_field :destination_first_name_kana, autofocus: true, placeholder: " 例）さぶろう", class: "addressForm__content__namekana__fi", id: "text_field"
               .addressForm__content__post.flex
@@ -56,15 +56,15 @@
                 = f.label :番地, id: "label"
                 .must_check 必須
               .addressForm__content__streetField
-                = f.text_field :address_street, autofocus: true, placeholder: " 番地", class: "addressForm__content__street__input p-street-address", id: "text_field"
+                = f.text_field :address_street, autofocus: true, class: "addressForm__content__street__input p-street-address", id: "text_field"
               .addressForm__content__building.flex
                 = f.label :建物, id: "label"
-                %span 任意
+                %span (任意)
               .addressForm__content__buildingField
                 = f.text_field :address_building, autofocus: true, placeholder: " 例）マンション名など", class: "addressForm__content__building__input p-extended-address", id: "text_field"
               .addressForm__content__telnum.flex
                 = f.label :電話番号, id: "label"
-                %span 任意
+                %span (任意)
               .addressForm__content__telnumField
                 = f.text_field :phone_number, autofocus: true, placeholder: " 例）09012345678", class: "addressForm__content__telnum", id: "text_field"
               .addressForm__content__submit

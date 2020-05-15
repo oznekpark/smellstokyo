@@ -30,6 +30,10 @@
     &__edit:hover {
       opacity: 0.7;
     }
+    &__nothing {
+      padding-left: 65px;
+      padding-top: 50px;
+    }
   }
 }
 
@@ -38,9 +42,8 @@
   &__content {
     width: 60%;
     margin: 0 auto;
-    padding-left: 40px;
     &__title {
-      padding: 20px 40px;
+      padding: 20px 0 20px 100px;
       font-weight: bold;
       font-size: 20px;
       width: 100%;
@@ -50,16 +53,14 @@
 }
 .flex {
   display: flex;
+  padding: 9px;
 }
 .must_check {
   background-color: rgb(230, 67, 67);
   margin-left: 5px;
-  border-radius: 2px;
+  border-radius: 1px;
   color: $background-color;
-  font-size: 12px;
-}
-#text_field {
-  margin-left: 20px;
+  font-size: 11px;
 }
 .fieldForm {
   padding-top: 4px;
@@ -68,9 +69,15 @@
   padding-top: 20px;
 }
 .addressForm__content__submit{
-  padding-left: 70px;
+  text-align: center;
+  width: 100%;
+  padding-top: 27px;
   &__btn {
   padding: 2px 4px;
   border-radius: 3px;
+  width: 90%;
   }
+}
+.addressForm__content__post__input {
+  width: 173px;
 }
