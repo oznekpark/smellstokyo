@@ -1,21 +1,55 @@
 .newOrder
   .newOrder__content
     .newOrder__content__title
-      NEW ORDER
+      CHECK OUT
     .newOrder__content__middleBox
       .newOrder__content__middleBox__right
-        .newOrder__content__middleBox__right__addressInfo
+        .newOrder__content__middleBox__right__addressIndex
+          .newOrder__content__middleBox__right__addressIndex__content
+            .newOrder__content__middleBox__right__addressIndex__content__title
+              送付先住所
+            .newOrder__content__middleBox__right__addressIndex__content__details
+            - if @address.present?
+              .newOrder__content__middleBox__right__addressIndex__content__details__postCode
+                = "〒 #{@address.postcode}"
+              .newOrder__content__middleBox__right__addressIndex__content__details__address
+                = @address.prefecture_code.to_s + @address.address_city + @address.address_street + @address.address_building
+              .newOrder__content__middleBox__right__addressIndex__content__details__receiver
+                = @address.destination_family_name + @address.destination_first_name
+              .newOrder__content__middleBox__right__addressIndex__content__edit
+                = link_to "住所を変更する", edit_address_path(@address.id)
+            - else
+              .newOrder__content__middleBox__right__addressIndex__content__nothing
+                = link_to "登録する", new_address_path, data: {"turbolinks"=>false}, class: "addressIndex__content__nothing__btn"
       .newOrder__content__middleBox__left
-        .newOrder__content__middleBox__left__cardInfo
+        .newOrder__content__middleBox__left__payment
+          .newOrder__content__middleBox__left__payment__content
+            .newOrder__content__middleBox__left__payment__content__title
+              カード情報
+            .newOrder__content__middleBox__left__payment__content__box
+            - if @address.present?
+              .newOrder__content__middleBox__left__payment__content__box__cardImage
+                = image_tag "cards/#{@card_src}", width: 40, height: 28
+              .newOrder__content__middleBox__left__payment__content__box__details
+                .newOrder__content__middleBox__left__payment__content__box__details__cardNumber
+                  = "カード番号：**** **** **** " + @card_info.last4
+                .newOrder__content__middleBox__left__payment__content____box__details__cardMMYY
+                  = "有効期限：" + @exp_month + " / " + @exp_year
+              .newOrder__content__middleBox__left__payment__content__box__change
+                = link_to "変更する", new_card_path
+            - else
+              .newOrder__content__middleBox__left__payment__content__box__submit
+                = link_to "登録する", new_card_path
     .cart__content__message
-      SUMMARY
+      .orderTitle
+        ご注文内容
       %table.cart__content__table{border: 2}
         %thead.cart__content__table__head
           %tr.cart__content__table__tr
             %th &nbsp;
-            %th ITEM
-            %th QTY
-            %th SUBTOTAL
+            %th アイテム
+            %th 数量
+            %th 小計
         %tbody.cart__content__table__body
           - @line_items.each do |line_item|
             %tr.cart__content__table__tr
@@ -24,4 +58,4 @@
               %td= line_item.quantity
               %td= "¥#{convertToJPY(line_item.total_price)}"
       .cart__content__total
-        = "TOTAL : ¥#{convertToJPY(@cart.total_price)}"
+        = "合計 : ¥#{convertToJPY(@cart.total_price)}"

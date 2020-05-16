@@ -1,8 +1,106 @@
 .newOrder{
   width: 100%;
+  color: $base-font-color;
   &__content {
-    width: 800px;
+    width: 65%;
     margin: 0 auto;
-    margin-top: 200px;
+    margin-top: 160px;
+    &__title {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 50px;
+      font-weight: bold;
+      color: $base-font-color;
+      font-weight: bold;
+    }
+    &__middleBox {
+      display: flex;
+      width: 100%;
+      margin-bottom: 40px;
+      &__right {
+        width: 40%;
+        margin: 0 auto;
+        &__addressIndex {
+          width: 100%;
+          &__content {
+            width: 60%;
+            margin: 0 auto;
+            &__title {
+              font-size: 20px;
+              width: 100%;
+              margin: 0 auto;
+              text-align: center;
+              padding-bottom: 20px;
+            }
+            &__details {
+              width: 100%;
+              &__postCode {
+                padding-bottom: 10px;
+                font-size: 1.1em;
+              }
+              &__address {
+                padding-bottom: 10px;
+              }
+              &__receiver {
+                padding-bottom: 10px;
+              }
+            }
+            &__edit {
+              width: 70%;
+              margin: 0 auto;
+              text-align: center;
+              padding-top: 10px;
+              border-bottom: 1px solid $base-font-color;
+            }
+            &__edit:hover {
+              opacity: 0.8;
+            }
+            &__nothing {
+              padding-left: 65px;
+              padding-top: 50px;
+            }
+          }
+        }
+      }
+      &__left {
+        width: 40%;
+        margin: 0 auto;
+        &__payment {
+          width: 100%;
+          &__content {
+            width: 60%;
+            margin: 0 auto;
+            &__title {
+              font-size: 20px;
+              width: 100%;
+              margin: 0 auto;
+              text-align: center;
+              padding-bottom: 20px;
+            }
+            &__box {
+              display: flex;
+              justify-content: flex-start;
+              width: 100%;
+              &__cardImage {
+                padding-top: 30px;
+              }
+              &__details {
+                padding-left: 30px;
+                &__cardNumber {
+                  padding-top: 20px;
+                }
+                &__cardMMYY {
+                  padding-top: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
+}
+.orderTitle {
+  font-size: 20px;
+  padding-bottom: 15px;
 }

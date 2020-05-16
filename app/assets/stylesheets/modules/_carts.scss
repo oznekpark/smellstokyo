@@ -1,7 +1,7 @@
 .cart {
   width: 100%;
   &__content {
-    width: 860px;
+    width: 70%;
     margin: 0 auto;
     margin-top: 160px;
     &__title {
@@ -47,7 +47,7 @@
     }
     &__order {
       text-align: center;
-      width: 600px;
+      width: 80%;
       height: 50px;
       margin: 0 auto;
       background-color: $base-font-color;

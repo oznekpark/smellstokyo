@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm]
   before_action :set_cart
+  before_action :set_card
+  before_action :set_address
+  before_action :set_user
   # before_action :authenticate_user! #管理者用
+
+  require "payjp"
 
   #注文入力画面
   def new
@@ -10,6 +15,27 @@ class OrdersController < ApplicationController
     if @cart.line_items.empty?
       redirect_to current_cart, notice: "カートは空です"
       return
+    end
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    default_card_information = customer.cards.retrieve(@card.card_id)
+    @card_info = customer.cards.retrieve(@card.card_id)
+    @exp_month = default_card_information.exp_month.to_s
+    @exp_year = default_card_information.exp_year.to_s.slice(2,3)
+    customer_card = customer.cards.retrieve(@card.card_id)
+    @card_brand = customer_card.brand
+    case @card_brand
+    when "Visa"
+      @card_src = "icon_visa.png"
+    when "JCB"
+      @card_src = "icon_jcb.png"
+    when "MasterCard"
+      @card_src = "icon_mastercard.png"
+    when "American Express"
+      @card_src = "icon_amex.png"
+    when "Diners Club"
+      @card_src = "icon_diners.png"
+    when "Discover"
+      @card_src = "icon_discover.png"
     end
     @order = Order.new
   end
@@ -47,15 +73,27 @@ class OrdersController < ApplicationController
   # end
 
   private
-    def order_params
-      params.require(:order).permit(:user_id, :address_id, :card_id, :quantity, :product_id)
-    end
+  def order_params
+    params.require(:order).permit(:user_id, :address_id, :card_id, :quantity, :product_id)
+  end
 
-    def set_order
-      @order = Order.find(params[:id])
-    end
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
-    def set_cart
-      @cart = current_cart
-    end
+  def set_cart
+    @cart = current_cart
+  end
+
+  def set_card
+    @card = Card.where(user_id: current_user.id).first
+  end
+
+  def set_address
+    @address = Address.find_by(user_id: current_user.id)
+  end
+
+  def set_user
+    @user = current_user
+  end
 end

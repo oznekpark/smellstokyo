@@ -47,7 +47,7 @@
 .myPage {
   width: 100%;
   &__content {
-    width: 860px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 160px;
     &__title {
@@ -58,12 +58,12 @@
       color: $base-font-color;
     }
     &__box {
-      width: 100%;
+      width: 65%;
+      margin: 0 auto;
       display: flex;
       &__left{
-        width: 20%;
+        width: 25%;
         &__menu {
-          padding-top: 30px;
           padding-left: 5px;
           &__list {
             font-size: 15px;
@@ -74,10 +74,10 @@
         }
       }
       &__right {
-        width: 80%;
+        width: 75%;
         &__message {
-          padding-left: 190px;
-          padding-top: 100px;
+          padding-left: 160px;
+          padding-top: 30px;
         }
       }
     }
