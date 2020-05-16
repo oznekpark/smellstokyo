@@ -1,5 +1,6 @@
 class Address < ApplicationRecord
   belongs_to :user
+  has_one :order
 
   VALID_PHONE_REGEX = /\A\d{10,11}\z/
   VALID_NAME_REGEX = /\A[一-龥ぁ-ん]/

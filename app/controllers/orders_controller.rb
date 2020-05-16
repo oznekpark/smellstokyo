@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm]
   before_action :set_cart
+  before_action :user_signed_in
+  before_action :set_user
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm]
   before_action :set_card
   before_action :set_address
-  before_action :set_user
   # before_action :authenticate_user! #管理者用
 
   require "payjp"
@@ -54,6 +55,7 @@ class OrdersController < ApplicationController
       #モデルで定義したメソッドを使用して,単一購入から複数購入できるように変更する記述↓
       OrderDetail.create_items(@order, @line_items)
       # OrderMailer.confirm_mail(@order).deliver
+      flash[:notice] = '注文が完了しました'
       redirect_to action: :confirm
     else
       redirect_to :new, alert: "注文の登録ができませんでした"
@@ -79,6 +81,10 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:user_id, :address_id, :card_id, :quantity, :product_id)
   end
 
+  def set_user
+    @user = current_user
+  end
+
   def set_order
     @order = Order.find(params[:id])
   end
@@ -88,14 +94,16 @@ class OrdersController < ApplicationController
   end
 
   def set_card
-    @card = Card.find_by(user_id: current_user.id) if @card.present?
+    @card = Card.find_by(user_id: current_user.id)
   end
 
   def set_address
-    @address = Address.find_by(user_id: current_user.id) if @address.present?
+    @address = Address.find_by(user_id: current_user.id)
   end
 
-  def set_user
-    @user = current_user
+  def user_signed_in
+    unless user_signed_in?
+      redirect_to cart_path(@cart.id), alert: "レジに進むにはログインが必要です"
+    end
   end
 end

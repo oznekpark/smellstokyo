@@ -1,16 +1,13 @@
-$white: #fff;
-$black: #434a54;
-
 .notification {
+  padding-top: 140px;
   .notice {
-    background-color: $black;
-    color: $white;
+    background-color: $flash-color;
+    color: $background-color;
     text-align: center;
   }
-
   .alert {
-    background-color: $black;
-    color: $white;
+    background-color: $flash-color;
+    color: $background-color;
     text-align: center;
   }
 }

@@ -4,7 +4,7 @@
   &__content {
     width: 65%;
     margin: 0 auto;
-    margin-top: 160px;
+    margin-top: 20px;
     &__title {
       text-align: center;
       font-size: 26px;
@@ -12,6 +12,22 @@
       font-weight: bold;
       color: $base-font-color;
       font-weight: bold;
+    }
+    &__order {
+      width: 100%;
+      padding-top: 10px;
+      height: 50px;
+      &__btn {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+        border-style: none;
+        background-color: $base-font-color;
+        line-height: 50px;
+        text-align: center;
+        color: $background-color;
+        font-weight: bold;
+      }
     }
     &__middleBox {
       display: flex;
@@ -106,22 +122,3 @@
   font-size: 20px;
   padding-bottom: 15px;
 }
-
-// .newOrder__content__middleBox__left__payment
-//           .newOrder__content__middleBox__left__payment__content
-//             .newOrder__content__middleBox__left__payment__content__title
-//               カード情報
-//             - if @address.present?
-//               .newOrder__content__middleBox__left__payment__content__box
-//                 .newOrder__content__middleBox__left__payment__content__box__cardImage
-//                   = image_tag "cards/#{@card_src}", width: 40, height: 28
-//                 .newOrder__content__middleBox__left__payment__content__box__details
-//                   .newOrder__content__middleBox__left__payment__content__box__details__cardNumber
-//                     = "カード番号：**** **** **** " + @card_info.last4
-//                   .newOrder__content__middleBox__left__payment__content__box__details__cardMMYY
-//                     = "有効期限：" + @exp_month + " / " + @exp_year
-//               .newOrder__content__middleBox__left__payment__content__change
-//                 = link_to "変更する", new_card_path
-//             - else
-//               .newOrder__content__middleBox__left__payment__content__submit
-//                 = link_to "登録する", new_card_path

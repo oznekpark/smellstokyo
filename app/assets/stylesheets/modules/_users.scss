@@ -1,19 +1,19 @@
 .login{
-  padding-top: 180px;
+  padding-top: 40px;
   padding-bottom: 30px;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   color: $base-font-color;
   &__title {
     margin: 20px 0;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: bold;
   }
 }
 
 .signup {
-  padding-top: 170px;
-  width: 100vw;
+  padding-top: 30px;
+  width: 100%;
   text-align: center;
   color: $base-font-color;
   &__title {
@@ -24,8 +24,8 @@
 }
 
 .editUser {
-  padding-top: 170px;
-  width: 100vw;
+  padding-top: 30px;
+  width: 100%;
   text-align: center;
   color: $base-font-color;
   &__title {
@@ -49,7 +49,7 @@
   &__content {
     width: 100%;
     margin: 0 auto;
-    margin-top: 160px;
+    margin-top: 20px;
     &__title {
       text-align: center;
       font-size: 26px;
