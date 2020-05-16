@@ -28,6 +28,8 @@ class AddressesController < ApplicationController
   end
 
   def destroy
+    @address.destroy
+    redirect_to action: :index
   end
 
   private

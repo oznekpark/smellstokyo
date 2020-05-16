@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   belongs_to :use_scene
   has_many :comments, dependent: :destroy
   has_many :order_details
-  has_many :line_items
+  has_many :line_items, dependent: :destroy
   before_destroy :ensure_not_referenced_by_any_line_item
   
   #Validation

@@ -2,13 +2,26 @@
   .newOrder__content
     .newOrder__content__title
       NEW ORDER
-
-  - @line_items.each do |line_item|
-    .newOrder__content__item
-      = "製品名 : #{line_item.product.name}"
-    .newOrder__content__price
-      = "小計 : #{convertToJPY(line_item.product.price)}円"
-    .newOrder__content__qty
-      = "数量 : #{line_item.quantity}個"
-  .newOrder__total
-  = "合計: #{convertToJPY(@cart.total_price)}円"
+    .newOrder__content__middleBox
+      .newOrder__content__middleBox__right
+        .newOrder__content__middleBox__right__addressInfo
+      .newOrder__content__middleBox__left
+        .newOrder__content__middleBox__left__cardInfo
+    .cart__content__message
+      SUMMARY
+      %table.cart__content__table{border: 2}
+        %thead.cart__content__table__head
+          %tr.cart__content__table__tr
+            %th &nbsp;
+            %th ITEM
+            %th QTY
+            %th SUBTOTAL
+        %tbody.cart__content__table__body
+          - @line_items.each do |line_item|
+            %tr.cart__content__table__tr
+              %td= image_tag line_item.product.image, width: 80, height: 80
+              %td= line_item.product.namejap
+              %td= line_item.quantity
+              %td= "¥#{convertToJPY(line_item.total_price)}"
+      .cart__content__total
+        = "TOTAL : ¥#{convertToJPY(@cart.total_price)}"

@@ -31,7 +31,10 @@
               .addressIndex__content__details__receiver
                 = @address.destination_family_name + @address.destination_first_name
               .addressIndex__content__edit
-                = link_to "修正する", edit_address_path(@address.id)
+                .addressIndex__content__edit__modify
+                  = link_to "修正する", edit_address_path(@address.id)
+                .addressIndex__content__edit__delete
+                  = link_to "削除する", address_path(@address.id), method: :delete
             - else
               .addressIndex__content__nothing
                 = link_to "登録する", new_address_path, data: {"turbolinks"=>false}, class: "addressIndex__content__nothing__btn"

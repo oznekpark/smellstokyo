@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm]
   before_action :set_cart
+  # before_action :authenticate_user! #管理者用
 
   #注文入力画面
   def new
@@ -25,7 +26,7 @@ class OrdersController < ApplicationController
       #モデルで定義したメソッドを使用して,単一購入から複数購入できるように変更する記述↓
       OrderDetail.create_items(@order, @line_items)
       # OrderMailer.confirm_mail(@order).deliver
-      redirect_to root_path, alert: "注文が正常に登録されました"
+      redirect_to action: :confirm
     else
       redirect_to :new, alert: "注文の登録ができませんでした"
     end
