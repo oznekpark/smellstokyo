@@ -16,28 +16,30 @@ class OrdersController < ApplicationController
       redirect_to current_cart, notice: "カートは空です"
       return
     end
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    default_card_information = customer.cards.retrieve(@card.card_id)
-    @card_info = customer.cards.retrieve(@card.card_id)
-    @exp_month = default_card_information.exp_month.to_s
-    @exp_year = default_card_information.exp_year.to_s.slice(2,3)
-    customer_card = customer.cards.retrieve(@card.card_id)
-    @card_brand = customer_card.brand
-    case @card_brand
-    when "Visa"
-      @card_src = "icon_visa.png"
-    when "JCB"
-      @card_src = "icon_jcb.png"
-    when "MasterCard"
-      @card_src = "icon_mastercard.png"
-    when "American Express"
-      @card_src = "icon_amex.png"
-    when "Diners Club"
-      @card_src = "icon_diners.png"
-    when "Discover"
-      @card_src = "icon_discover.png"
+    if @card.present?
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      default_card_information = customer.cards.retrieve(@card.card_id)
+      @card_info = customer.cards.retrieve(@card.card_id)
+      @exp_month = default_card_information.exp_month.to_s
+      @exp_year = default_card_information.exp_year.to_s.slice(2,3)
+      customer_card = customer.cards.retrieve(@card.card_id)
+      @card_brand = customer_card.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "icon_visa.png"
+      when "JCB"
+        @card_src = "icon_jcb.png"
+      when "MasterCard"
+        @card_src = "icon_mastercard.png"
+      when "American Express"
+        @card_src = "icon_amex.png"
+      when "Diners Club"
+        @card_src = "icon_diners.png"
+      when "Discover"
+        @card_src = "icon_discover.png"
+      end
+      @order = Order.new
     end
-    @order = Order.new
   end
 
   #注文の登録(単一購入から複数購入できるように変更)
@@ -86,11 +88,11 @@ class OrdersController < ApplicationController
   end
 
   def set_card
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id) if @card.present?
   end
 
   def set_address
-    @address = Address.find_by(user_id: current_user.id)
+    @address = Address.find_by(user_id: current_user.id) if @address.present?
   end
 
   def set_user

@@ -42,7 +42,7 @@ class AddressesController < ApplicationController
   end
 
   def address_params
-    params.require(:address).permit(:destination_first_name, :destination_family_name, :destination_first_name_kana, :destination_family_name_kana, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :phone_number).merge(user_id: current_user.id)
+    params.require(:address).permit(:destination_family_name, :destination_first_name, :destination_family_name_kana, :destination_first_name_kana, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :phone_number).merge(user_id: current_user.id)
   end
 
   def set_address
