@@ -1,5 +1,6 @@
 class OrderDetailsController < ApplicationController
   before_action :set_order_detail, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart
 
   def index
     @order_details = OrderDetail.all
@@ -52,11 +53,15 @@ class OrderDetailsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order_detail
-      @order_detail = OrderDetail.find(params[:id])
+      @order_detail = OrderDetail.find(params[:id]) if @order_detail.present?
     end
 
     # Only allow a list of trusted parameters through.
     def order_detail_params
       params.fetch(:order_detail, {})
+    end
+
+    def set_cart
+      @cart = current_cart
     end
 end

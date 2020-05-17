@@ -29,7 +29,7 @@
             - if @card.present?
               .newOrder__content__middleBox__left__payment__content__box
                 .newOrder__content__middleBox__left__payment__content__box__cardImage
-                  = image_tag "cards/#{@card_src}", width: 50, height: 38
+                  = image_tag "cards/#{@card_src}", width: 50, height: 40
                 .newOrder__content__middleBox__left__payment__content__box__details
                   .newOrder__content__middleBox__left__payment__content__box__details__cardNumber
                     = "カード番号：**** **** **** " + @card_info.last4
@@ -60,4 +60,8 @@
       .cart__content__total
         = "合計 : ¥#{convertToJPY(@cart.total_price)}"
     .newOrder__content__order
-      = button_to "購入する", orders_path, class: "newOrder__content__order__btn", params: {user_id: current}
+      - if @card.present? && @address.present?
+        = button_to "購入する", orders_path, class: "newOrder__content__order__btn", params: {user_id: current_user.id, address_id: @address.id, card_id: @card.id, price: @cart.total_price, quantity: totalQty(@line_items)}
+      - else
+        .newOrder__content__order__btnNon
+          ※ 購入には送付先住所・カード情報の登録が必要です

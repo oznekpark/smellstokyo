@@ -20,12 +20,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   
-  resources :users, only: :show do
-    collection do
-      get 'register_card'
-      get 'register_address'
-    end
-  end
+  resources :users, only: :show
 
   resources :line_items
   
@@ -37,7 +32,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:new, :create, :show, :index] do
     collection do
-      post 'confirm'
+      get 'confirm'
     end
   end 
 

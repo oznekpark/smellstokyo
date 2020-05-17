@@ -49,16 +49,23 @@ class OrdersController < ApplicationController
       redirect_to cart_path(@current_cart), notice: "ログインしてください"
       return
     end
+    @purchaseByCard = Payjp::Charge.create(
+    amount: @cart.total_price,
+    customer: @card.customer_id,
+    currency: 'jpy',
+    card: params['payjpToken']
+    )
     @order = Order.new(order_params)
     @order.add_items(current_cart)
-    if @order.save
+    if @purchaseByCard.save && @order.save!
       #モデルで定義したメソッドを使用して,単一購入から複数購入できるように変更する記述↓
-      OrderDetail.create_items(@order, @line_items)
+      OrderDetail.create_items(@order, @cart.line_items)
       # OrderMailer.confirm_mail(@order).deliver
       flash[:notice] = '注文が完了しました'
-      redirect_to action: :confirm
+      redirect_to root_path
     else
-      redirect_to :new, alert: "注文の登録ができませんでした"
+      flash[:alert] = "注文の登録ができませんでした"
+      redirect_to action: :new
     end
   end
 
@@ -78,7 +85,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:user_id, :address_id, :card_id, :quantity, :product_id)
+    params.permit(:user_id, :address_id, :card_id, :quantity, :price)
   end
 
   def set_user

@@ -1,12 +1,14 @@
 class OrderDetail < ApplicationRecord
+  belongs_to :order
+  belongs_to :product
   # OrderDetailで購入処理を行っていく
   # OrderモデルからOrderDetailモデルへ購入処理時にカート情報を引き継ぐためのメソッド
   def self.create_items(order, line_items)
-    line_items.each do |item|
+    line_items.target.each do |item|
       OrderDetail.create!(
-        order_id: order.id, product_id: item.product_id, quantity: item.quantity
+        order_id: order.id, product_id: item[:product_id], quantity: item[:quantity]
       )
-      LineItem.find(item.id).delete
+      LineItem.find(item[:id]).delete
     end
   end
 

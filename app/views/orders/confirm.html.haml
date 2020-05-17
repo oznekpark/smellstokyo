@@ -1,7 +1,7 @@
 以下の内容でご注文を承りました。
 ---------------------------
 = "受付時間 : #{@order.updated_at}"
-= "お届け先 : #{@oder.address}"
+= "お届け先 : #{@order.address}"
 - @order.order_details.each do |detail|
   = "製品名 : #{Product.find(detail.product_id).title}"
   = "数量 : #{detail.quantity}個"

@@ -28,6 +28,13 @@
         color: $background-color;
         font-weight: bold;
       }
+      &__btnNon {
+        border-style: none;
+        line-height: 50px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.15em;
+      }
     }
     &__middleBox {
       display: flex;
