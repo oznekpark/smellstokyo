@@ -12,8 +12,8 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    if @address.save!
-      flash[:notice] = '住所の登録が完了しました'
+    if @address.save
+      flash[:notice] = '住所情報の登録が完了しました'
       redirect_to action: :index
     else
       flash[:alert] = '登録に失敗しました'
@@ -26,13 +26,13 @@ class AddressesController < ApplicationController
 
   def update
     @address.update(address_params)
-    flash[:notice] = '住所を更新しました'
+    flash[:notice] = '住所情報を更新しました'
     redirect_to action: :index
   end
 
   def destroy
     @address.destroy
-    flash[:notice] = '住所を削除しました'
+    flash[:notice] = '住所情報を削除しました'
     redirect_to action: :index
   end
 
