@@ -1,6 +1,16 @@
 ---
 ja:
   activerecord:
+    attributes:
+      address:
+        destination_family_name: 姓名
+        destination_first_name: 名前
+        destination_family_name_kana: 姓名(かな)
+        destination_first_name_kana: 名前(かな)
+        postcode: 郵便番号
+        prefecture_code: 都道府県
+        address_city: 市区町村
+        address_street: 番地
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
