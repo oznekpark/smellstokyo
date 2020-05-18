@@ -1,9 +1,9 @@
 # Smells Tokyo
 ## Description
-- This is mainly EC site that you are able to pick perfumes you like and purcahse by a test credit card.
-On top of that, this may suggest you perfumes you would like to use or you are looking for!
+- This is mainly EC site that you are able to pick perfumes you like and can purchase them by a test credit card.
+On top of that, this may suggest you what you would like to use or you are looking for!
 - Real transaction is impossible.
-- Never use your own credit card. use the following test card.
+- Never use your own credit card. Use the following test card.
   - number          : 5555555555554444
   - brand           : MasterCard
   - expiration date : 12/20
@@ -20,7 +20,7 @@ $ git clone https://github.com/oznekpark/smellstokyo.git
 $ cd smellstokyo
 $ bundle install
 ```
-## database
+## Database
 ### users table
 |Column|Type|Options|
 |------|----|-------|
