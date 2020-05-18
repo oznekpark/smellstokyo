@@ -1,16 +1,13 @@
 # Smells Tokyo
-![homepege](https://i.gyazo.com/1980666ab5b5931ecd2c30dace5c9239.jpg)
-![select](https://i.gyazo.com/3a4b2382b5a7c12936ec9942623eb66d.png)
 ## Description
-This is mainly EC site that you are able to pick perfumes you like and purcahse by a test credit card.
+- This is mainly EC site that you are able to pick perfumes you like and purcahse by a test credit card.
 On top of that, this may suggest you perfumes you would like to use or you are looking for!
-※ Real transaction is impossible.
-※ never use your own credit card.
-  use the following test card.
-  number          : 5555555555554444
-  brand           : MasterCard
-  expiration date : 12/20
-  cvc             : 123
+- Real transaction is impossible.
+- Never use your own credit card. use the following test card.
+  - number          : 5555555555554444
+  - brand           : MasterCard
+  - expiration date : 12/20
+  - cvc             : 123
 
 ## Requirement
 - Ruby 2.5.1
@@ -34,7 +31,7 @@ $ bundle install
 |reset_password_token|string||
 |reset_password_token|string||
 |admin|boolean|default: false|
-#### Association
+### Association
 - has_many :comments, dependent: :destroy
 - has_one :card, dependent: :destroy
 - has_one :address, dependent: :destroy
@@ -49,7 +46,7 @@ $ bundle install
 |status|integer|default: 0, null: false|
 |postage|integer|default: 0, null: false|
 |price|integer|null: false|
-#### Association
+### Association
 - belongs_to :user
 - has_many :products, through: :order_details
 - has_many :order_details, dependent: :destroy
@@ -61,7 +58,7 @@ $ bundle install
 |customer_id|string|null: false|
 |card_id|string|null: false|
 |user_id|string|null: false|
-#### Association
+### Association
 - belongs_to :user
 - has_one :order, dependent: :nullify
 ### addresses table
@@ -78,44 +75,44 @@ $ bundle install
 |address_building|string||
 |phone_number|bigint||
 |user|references|foreign_key: true, null: false|
-#### Association
+### Association
 - belongs_to :user
 - has_one :order, dependent: :nullify
 ### brands table
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-#### Association
+### Association
 has_many :products, dependent: :destroy
 ### sexes table
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-#### Association
+### Association
 has_many :products, dependent: :destroy
 ### seasons table
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-#### Association
+### Association
 has_many :products, dependent: :destroy
 ### smell_impressions table
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-#### Association
+### Association
 has_many :products, dependent: :destroy
 ### smell_types table
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-#### Association
+### Association
 has_many :products, dependent: :destroy
 ### user_scenes table
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-#### Association
+### Association
 has_many :products, dependent: :destroy
 ### products table
 |Column|Type|Options|
@@ -133,7 +130,7 @@ has_many :products, dependent: :destroy
 |main_spice|references|foreign_key: true|
 |smell_impression|references|foreign_key: true|
 |use_scene|references|foreign_key: true|
-#### Association
+### Association
 - belongs_to :brand
 - belongs_to :sex
 - belongs_to :season, optional: true
@@ -148,7 +145,7 @@ has_many :products, dependent: :destroy
 ### carts table
 |Column|Type|Options|
 |------|----|-------|
-#### Association
+### Association
 has_many :line_items, dependent: :destroy
 ### comments table
 |Column|Type|Options|
@@ -157,7 +154,7 @@ has_many :line_items, dependent: :destroy
 |product|references|foreign_key: true|
 |text|text|null: false|
 |rate|float|
-#### Association
+### Association
 belongs_to :product
 belongs_to :user
 ### order_details table
@@ -166,7 +163,7 @@ belongs_to :user
 |product|references|foreign_key: true|
 |order|references|foreign_key: true|
 |quantity|integer|null: false|
-#### Association
+### Association
 - belongs_to :order
 - belongs_to :product
 ### line_items table
@@ -175,6 +172,6 @@ belongs_to :user
 |product|references|foreign_key: true|
 |cart|references|foreign_key: true|
 |quantity|integer|default: 0, null: false|
-#### Association
+### Association
 - belongs_to :product
 - belongs_to :cart
