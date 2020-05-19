@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
       #モデルで定義したメソッドを使用して,単一購入から複数購入できるように変更する記述↓
       OrderDetail.create_items(@order, @cart.line_items)
       # OrderMailer.confirm_mail(@order).deliver
-      flash[:notice] = '注文が完了しました'
+      flash[:notice] = '注文が完了しました。マイページにて注文履歴の確認ができます。'
       redirect_to root_path
     else
       flash[:alert] = "注文の登録ができませんでした"

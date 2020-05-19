@@ -10,10 +10,10 @@
         %thead
           %tr
             %th 購入日
-            %th ご注文番号
+            %th 注文番号
             %th 状況
             %th 購入商品
-            %th 合計(税込)
+            %th 合計金額(税込)
           %tbody
             - @orders.each do |order|
             - product = Product.find(order.order_details.to_a[0][:product_id])
@@ -23,7 +23,7 @@
                 %td= order.status
                 %td
                   - if order.order_details.to_a.size == 1
-                    = link_to "#{product.namejap}", "order_details_path"
+                    = link_to "#{product.namejap}", "#"
                   -else 
-                    = link_to "#{product.namejap} など #{order.order_details.to_a.size}件", "order_details_path"
-                %td= convertToJPY(order.price)
+                    = link_to "#{product.namejap} など #{order.order_details.to_a.size}件", "#"
+                %td= "¥ #{convertToJPY(order.price)}"
