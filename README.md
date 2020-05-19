@@ -1,4 +1,6 @@
 # Smells Tokyo
+## URL
+http://18.176.232.167/
 ## Description
 - This is mainly EC site that you are able to pick perfumes you like and can purchase them by a test credit card.
 On top of that, this may suggest you what you would like to use or you are looking for!
@@ -8,6 +10,9 @@ On top of that, this may suggest you what you would like to use or you are looki
   - brand           : MasterCard
   - expiration date : 12/20
   - cvc             : 123
+- You can also user the following account which has been already registered.
+  - email           :test@gmail.com
+  - password        :test11
 
 ## Requirement
 - Ruby 2.5.1

@@ -1,32 +1,45 @@
 .addressIndex {
   width: 100%;
   &__content {
-    width: 60%;
-    margin: 0 auto;
+    width: 80%;
+    margin-top: 25px;
     &__title {
-      padding: 20px 0 50px 70px;
       font-weight: bold;
       font-size: 20px;
-      width: 100%;
+      width: 50%;
       margin: 0 auto;
+      margin-bottom: 40px;
+      text-align: center;
     }
     &__details {
-      width: 100%;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
       &__postCode {
         padding-bottom: 10px;
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
       }
       &__address {
         padding-bottom: 10px;
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
       }
       &__receiver {
         padding-bottom: 10px;
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
       }
     }
     &__edit {
       display: flex;
-      width: 70%;
+      width: 40%;
       text-align: center;
       padding-top: 25px;
+      margin: 0 auto;
       &__modify {
         width: 50%;
       }
@@ -42,8 +55,9 @@
     }
     &__nothing {
       padding-top: 50px;
-      width: 100%;
-      padding-left: 90px;
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
     }
   }
 }
