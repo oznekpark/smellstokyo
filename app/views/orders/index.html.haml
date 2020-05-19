@@ -1,0 +1,24 @@
+.orderedItems
+  .orderedItems__content
+    .orderedItems__content__title
+      ご注文履歴
+    - if @orders.count == 0
+      .orderedItems__content__nothing
+        ご注文履歴はございません
+    - else
+      %table.orderedItems__content__table{border: 2}
+        %thead
+          %tr
+            %th 購入日
+            %th ご注文番号
+            -# %th 状況
+            %th ご購入商品
+            %th 合計(税込)
+          %tbody
+            - @orders.each do |order|
+              %tr
+                %td= order.created_at.strftime('%Y/%m/%d') 
+                %td= order.id
+                -# %td= order.status
+                %td= link_to "#", order_details_path(@order_details)
+                %td= convertToJPY(order.price)

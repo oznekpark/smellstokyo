@@ -9,6 +9,11 @@ class OrdersController < ApplicationController
 
   require "payjp"
 
+  def index
+    @orders = Order.where(user_id: current_user.id).includes(:user, :address, :card)
+    
+  end
+
   #注文入力画面
   def new
     @line_items = current_cart.line_items

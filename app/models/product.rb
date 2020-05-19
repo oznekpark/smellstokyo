@@ -32,15 +32,7 @@ class Product < ApplicationRecord
     Product.where("brand_id = ? or sex_id = ? or smell_type_id = ? or main_spice_id = ? or smell_impression_id = ? or use_scene_id = ?", brand, sex, smell_type, main_spice, smell_impression, use_scene)
   end
 
-  scope :get_brand_id, -> brand_id {where(brand_id: brand_id)}
-  scope :get_sex_id, -> sex_id {where(sex_id: sex_id)}
-  scope :get_smell_type_id, -> (smell_type_id) {where(smell_type_id: smell_type_id)}
-  scope :get_main_spice_id, -> (main_spice_id) {where(main_spice_id: main_spice_id)}
-  scope :get_smell_impression_id, -> (smell_impression_id) {where(smell_impression_id: smell_impression_id)}
-  scope :get_use_scene_id, -> (use_scene_id) {where(use_scene_id: use_scene_id)}
-
   private
-
   def ensure_not_referenced_by_any_line_item
     # 関連する品目が空でないか検証
     if line_items.empty?

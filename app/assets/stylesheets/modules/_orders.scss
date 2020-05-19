@@ -129,3 +129,34 @@
   font-size: 20px;
   padding-bottom: 15px;
 }
+.orderedItems {
+  width: 100%;
+  &__content {
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 50px 0 100px;
+    &__title {
+      padding-top: 20px;
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 50px;
+      font-weight: bold;
+      color: $base-font-color;
+    }
+    &__nothing {
+      text-align: center;
+      font-size: 18px;
+      padding: 100px 0 200px;
+    }
+  }
+}
+table {
+  width: 100%;
+  color: $base-font-color;
+}
+th,
+td {
+  text-align: center;
+  font-size: 15px;
+}
