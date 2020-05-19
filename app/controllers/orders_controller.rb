@@ -10,8 +10,7 @@ class OrdersController < ApplicationController
   require "payjp"
 
   def index
-    @orders = Order.where(user_id: current_user.id).includes(:user, :address, :card)
-    
+    @orders = Order.where(user_id: current_user.id).includes(:user, :address, :card).order(id: :DESC)
   end
 
   #注文入力画面

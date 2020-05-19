@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   belongs_to :address
 
   enum postage: {burden: 0, free: 1}
-  enum stutas: {registered: 0, payed: 1, delivered: 2}
+  enum status: {支払済み: 0, 配送準備中: 1, 配送済み: 2}
 
   def add_items(cart)
     cart.line_items.target.each do |item|
