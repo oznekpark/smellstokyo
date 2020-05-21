@@ -13,6 +13,6 @@ class User < ApplicationRecord
   VALID_PW_REGEX = /\A[a-z\d]{6,100}+\z/i 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true, confirmation: true, format: { with: VALID_PW_REGEX }
+  validates :password, presence: true, confirmation: true, format: { with: VALID_PW_REGEX }, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 end

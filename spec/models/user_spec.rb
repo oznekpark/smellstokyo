@@ -42,5 +42,23 @@ describe User do
       user.valid?
       expect(user.errors[:nickname]).to include("は20文字以内で入力してください")
     end
+
+    it "passwordが6文字以上だと登録できる" do
+      user = build(:user, password: "123456", password_confirmation: "123456")
+      user.valid?
+      expect(user).to be_valid
+    end
+
+    it "passwordが6文字未満だと登録できない" do
+      user = build(:user, password: "12345")
+      user.valid?
+      expect(user.errors[:password]).to include("は6文字以上で入力してください")
+    end
+
+    it "passwordとpassword_confirmationが一致しないと登録できない" do
+      user = build(:user, password: "123456")
+      user.valid?
+      expect(user).not_to be_valid 
+    end
   end
 end
