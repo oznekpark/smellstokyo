@@ -19,4 +19,6 @@ class Card < ApplicationRecord
     # 上記で作成したトークンをもとに顧客情報を作成
     Payjp::Customer.create(card: token.id)
   end
+
+  validates :card_id, :customer_id, presence: true
 end
