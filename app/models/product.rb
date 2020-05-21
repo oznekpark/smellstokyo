@@ -11,9 +11,6 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_details
   has_many :line_items, dependent: :destroy
   before_destroy :ensure_not_referenced_by_any_line_item
-  
-  #Validation
-  validates :name, :description, :image, presence: true
 
   #cart機能
   before_destroy :ensure_not_referenced_by_any_line_item
