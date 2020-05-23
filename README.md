@@ -14,6 +14,16 @@ On top of that, this may suggest you what you would like to use or you are looki
   - email           :test@gmail.com
   - password        :test11
 
+## Implemented Functions
+- haml/SASS記法と、命名規則BEMを使ったマークアップ
+- deviseを用いたユーザー新規登録とログイン
+- cancancanを用いた管理者権限の付与
+- rails_adminを用いた管理者ページ作成及び商品登録
+- カート機能
+- PAY.JPを用いたクレジットカードの登録及び購入処理
+- RSpecを使った単体テスト
+- capistranoによるAWS EC2への自動デプロイ
+
 ## Requirement
 - Ruby 2.5.1
 - Ruby on Rails 5.2.4.2
