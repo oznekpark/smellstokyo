@@ -7,14 +7,12 @@ $(document).ready(function () {
     slidesPerGroup: 1,
     loopFillGroupWithBlank: true,
     centeredSlides: true,
-    // pagination: {
-    //   el: '.swiper-pagination',
-    //   clickable: true,
-    //   dynamicBullets: true
-    // },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+      delay: 4000,
     },
     scrollbar: {
       el: '.swiper-scrollbar',
