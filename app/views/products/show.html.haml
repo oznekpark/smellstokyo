@@ -28,14 +28,17 @@
       WE ALSO SUGGEST YOU
     .swiper-container
       .swiper-wrapper
-        .swiper-slide
-          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2019/02/the-one-min-1.jpg', alt: 'swipe01', width: 250, height: 250
-        .swiper-slide
-          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/annick-goutal-il-au-the-min-2.jpg', alt: 'swipe02', width: 250, height: 250
-        .swiper-slide
-          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/acqua-di-parma-arancia-di-capri-min.jpg', alt: 'swipe03', width: 250, height: 250
-        .swiper-slide
-          = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2020/02/bleu-de-chanel-min-1024x784.png', alt: 'swipe04', width: 250, height: 250
+        - @related_products.each do |product|
+          .swiper-slide
+            = link_to product_path(product.id), class: "index-contents__main__categoryList__innerList__innerBox__image__link", data: {"turbolinks" => false} do
+              = image_tag product.image, width: 260, height: 260
+        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2019/02/the-one-min-1.jpg', alt: 'swipe01', width: 250, height: 250
+        -# .swiper-slide
+        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/annick-goutal-il-au-the-min-2.jpg', alt: 'swipe02', width: 250, height: 250
+        -# .swiper-slide
+        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/acqua-di-parma-arancia-di-capri-min.jpg', alt: 'swipe03', width: 250, height: 250
+        -# .swiper-slide
+        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2020/02/bleu-de-chanel-min-1024x784.png', alt: 'swipe04', width: 250, height: 250
       .swiper-pagination
       .swiper-button-prev
       .swiper-button-next

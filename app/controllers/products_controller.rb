@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user).order('created_at DESC')
     @comment = Comment.new
+    @related_products = Product.order("RAND()").limit(6).where.not(id: @product.id)
   end
 
   private

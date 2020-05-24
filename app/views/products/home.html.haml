@@ -39,7 +39,8 @@
       .swiper-wrapper
         - @products.each do |product|
           .swiper-slide
-            = image_tag product.image, width: 260, height: 260
+            = link_to product_path(product.id), class: "index-contents__main__categoryList__innerList__innerBox__image__link", data: {"turbolinks" => false} do
+              = image_tag product.image, width: 260, height: 260
       .swiper-pagination
       .swiper-button-prev
       .swiper-button-next
