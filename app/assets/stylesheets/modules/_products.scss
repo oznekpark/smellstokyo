@@ -91,66 +91,61 @@
 .index-contents {
   width: 100%;
   &__selectTab {
-    margin: 30px auto;
-    width: 1200px;
+    margin: 50px auto;
+    width: 80%;
     &__selectCategory {
       display: flex;
-      width: 100%;
-      margin-bottom: 10px;
+      width: 90%;
+      margin: 0 auto;
+      padding-bottom: 20px;
       &__list {
-        width: calc(100%/3);
-        display: inline-block;
-        &__description {
-        margin-left: 80px;
-        padding: 4px 0;
-        color: $base-font-color;
-        }
+        width: 33.33%;
         &__tag {
-        margin-left: 80px;
         padding: 4px 0;
+        text-align: center;
         }
       }
     }
     &__selectBtn {
       padding-top: 20px;
-      width: 1200px;
+      width: 80%;
       margin: 0 auto;
       text-align: center;
       background-color: $background-color;
       color: $base-font-color;
       &__btn {
-        background: none;
-        font-size: 12px;
-        color: $base-font-color;
+        color: $background-color;
+        background-color: $base-font-color;
+        border-style: none;
+        width: 20%;
+        padding: 10px;
+        font-size: 0.9em;
       }
     }
   }
   &__topicPath {
-    height: 10px;
-    width: 1200px;
-    margin: 5px auto;
+    width: 60%;
+    margin: 0 auto;
     color: $base-font-color;
   }
   &__amountProducts {
-    height: 10px;
-    width: 1200px;
-    margin: 10px auto;
+    width: 70%;
+    margin: 0 auto;
     color: $base-font-color;
   }
   &__main {
     width: 100%;
     &__categoryList {
-      width: 1200px;
+      width: 80%;
       margin: 0 auto;
       &__innerList {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
         margin-top: 50px;
-        // overflow: hidden;
-        // width: 100%;
+        width: 100%;
         &__innerBox {
-          width: calc(100% / 4);
+          width: 25%;
           margin: 15px 0;
           &__image {
             text-align: center;
@@ -165,6 +160,7 @@
             margin: 8px;
             &__name {
               margin-bottom: 4px;
+              text-align: center;
             }
           }
         }
@@ -281,7 +277,7 @@ select {
   }
 }
 .star {
-  color: rgb(255, 27, 27);
+  color: rgb(30, 64, 255);
 }
 //show.<end>
 
