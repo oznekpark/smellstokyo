@@ -18,6 +18,11 @@ Rails.application.routes.draw do
       get 'indexOfMenProducts'
     end
     resources :comments
+    resources :bookmarks, only: [:create, :destroy] do
+      collection do
+        get 'bookmark'
+      end
+    end
   end
   
   resources :users, only: :show

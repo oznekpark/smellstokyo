@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_one :card, dependent: :destroy
   has_one :address, dependent: :destroy
   has_many :orders, dependent: :nullify
+  has_many :bookmarks, dependent: :destroy
+  has_many :products, through: :bookmarks
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PW_REGEX = /\A[a-z\d]{6,100}+\z/i 

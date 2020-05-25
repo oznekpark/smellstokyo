@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_150041) do
+ActiveRecord::Schema.define(version: 2020_05_25_141358) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "destination_first_name", null: false
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2020_05_07_150041) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_bookmarks_on_product_id"
+    t.index ["user_id", "product_id"], name: "index_bookmarks_on_user_id_and_product_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -172,6 +182,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_150041) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "bookmarks", "products"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"

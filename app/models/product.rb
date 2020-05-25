@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   has_many :order_details
   has_many :orders, through: :order_details
   has_many :line_items, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   before_destroy :ensure_not_referenced_by_any_line_item
 
   #cart機能
@@ -27,6 +28,10 @@ class Product < ApplicationRecord
   #プルダウン検索
   def self.choose(brand, sex, smell_type, main_spice, smell_impression, use_scene)
     Product.where("brand_id = ? or sex_id = ? or smell_type_id = ? or main_spice_id = ? or smell_impression_id = ? or use_scene_id = ?", brand, sex, smell_type, main_spice, smell_impression, use_scene)
+  end
+
+  def bookmark_by?(user)
+    bookmarks.where(user_id: user.id).exists?
   end
 
   private
