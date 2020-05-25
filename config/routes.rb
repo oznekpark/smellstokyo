@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users, controllers: {
@@ -16,13 +18,10 @@ Rails.application.routes.draw do
       get 'searchFromPulldownsForm'
       get 'indexOfWomenProducts'
       get 'indexOfMenProducts'
+      get 'bookmarks'
     end
     resources :comments
-    resources :bookmarks, only: [:create, :destroy] do
-      collection do
-        get 'bookmark'
-      end
-    end
+    resources :bookmarks, only: [:create, :destroy]
   end
   
   resources :users, only: :show

@@ -221,8 +221,7 @@ select {
         }
       }
       &__line {
-        // display: flex;
-        // justify-content: center;
+        display: flex;
         padding-top: 30px;
         width: 70%;
         &__price {
@@ -230,7 +229,7 @@ select {
           font-size: 19px;
         }
         &__fav{
-          margin-left: 100px;
+          margin-left: 30px;
           padding-top: 5px;
           &__btn {
             border-style: none;
@@ -257,7 +256,7 @@ select {
     }
   }
   &__suggest {
-    width: 1200px;
+    width: 80%;
     margin: 0 auto;
     &__items {
       font-size: 20px;
@@ -267,10 +266,26 @@ select {
       margin: 20px 0 40px;
       color: $base-font-color;
     }
+    &__contents {
+      width: 100%;
+      padding-top: 30px;
+      &__box {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        &__each {
+          width: 25%;
+        }
+      }
+    }
   }
+}
+.star {
+  color: rgb(255, 27, 27);
 }
 //show.<end>
 
-.fas {
+.fas
+.far {
   padding-left: 4px;
 }

@@ -11,6 +11,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_details
   has_many :line_items, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :users, through: :bookmarks
   before_destroy :ensure_not_referenced_by_any_line_item
 
   #cart機能

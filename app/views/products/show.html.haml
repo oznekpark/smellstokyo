@@ -17,7 +17,13 @@
           .showMain__Boxes__rightBox__line__price
             = "本体価格 : ¥#{convertToJPY(@product.price)}"
           .showMain__Boxes__rightBox__line__fav
-            -# = button_tag "☆", type: "submit", class: "showMain__Boxes__rightBox__line__fav__btn"
+            - if user_signed_in? && current_user
+              - if @product.bookmark_by?(current_user)
+                = link_to product_bookmark_path(@product.id), class: "showMain__Boxes__rightBox__line__fav__btn.fav", method: :delete, remote: true do
+                  %i.fas.fa-star.star
+              - else
+                = link_to product_bookmarks_path(@product.id), class: "showMain__Boxes__rightBox__line__fav__btn.fav", method: :post, remote: true do
+                  %i.far.fa-star.star-o (お気に入りに追加)
         .showMain__Boxes__rightBox__line
         .showMain__Boxes__rightBox__addCart
           = f.hidden_field :product_id, value: @product.id
@@ -26,23 +32,12 @@
   .showMain__suggest
     .showMain__suggest__items
       WE ALSO SUGGEST YOU
-    .swiper-container
-      .swiper-wrapper
+    .showMain__suggest__contents
+      %ul.showMain__suggest__contents__box
         - @related_products.each do |product|
-          .swiper-slide
-            = link_to product_path(product.id), class: "index-contents__main__categoryList__innerList__innerBox__image__link", data: {"turbolinks" => false} do
+          %li.showMain__suggest__contents__box__each
+            = link_to product_path(product.id), class: "showMain__suggest__contents__box__each__link", data: {"turbolinks" => false} do
               = image_tag product.image, width: 260, height: 260
-        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2019/02/the-one-min-1.jpg', alt: 'swipe01', width: 250, height: 250
-        -# .swiper-slide
-        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/annick-goutal-il-au-the-min-2.jpg', alt: 'swipe02', width: 250, height: 250
-        -# .swiper-slide
-        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2018/02/acqua-di-parma-arancia-di-capri-min.jpg', alt: 'swipe03', width: 250, height: 250
-        -# .swiper-slide
-        -#   = image_tag 'https://cdn.celes-perfume.com/wp-content/uploads/2020/02/bleu-de-chanel-min-1024x784.png', alt: 'swipe04', width: 250, height: 250
-      .swiper-pagination
-      .swiper-button-prev
-      .swiper-button-next
-      .swiper-scrollbar
   .comments
     .comments__title
       = "レビュー(#{@product.comments.length})"
