@@ -2,6 +2,10 @@ class BookmarksController < ApplicationController
   before_action :set_cart
   before_action :set_user
 
+  def index
+    @bookmarks = Bookmark.where(user_id: current_user.id).includes(:user, :product).order(id: :DESC)
+  end
+
   def create
     bookmark = current_user.bookmarks.build(product_id: params[:product_id])
     product = Product.find(params[:product_id])

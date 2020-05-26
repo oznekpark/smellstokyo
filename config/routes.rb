@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :comments
     resources :bookmarks, only: [:create, :destroy]
   end
+
+  resources :bookmarks, only: :index
   
   resources :users, only: :show
 

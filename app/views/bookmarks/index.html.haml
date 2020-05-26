@@ -1,7 +1,6 @@
 .myPage
   .myPage__content
     .myPage__content__title
-      MY PAGE
     .myPage__content__box
       .myPage__content__box__left
         %ul.myPage__content__box__left__menu
@@ -20,3 +19,23 @@
           %li.myPage__content__box__left__menu__list
             = link_to "ログアウト", destroy_user_session_path, method: :delete
       .myPage__content__box__right
+        .orderedItems
+          .orderedItems__content
+            .orderedItems__content__title
+              お気に入り
+            - if @bookmarks.count == 0
+              .orderedItems__content__nothing
+                まだお気に入りはありません
+            - else
+              %table.cart__content__table{border: 2}
+                %thead.cart__content__table__head
+                  %tr.cart__content__table__tr
+                    %th &nbsp;
+                    %th アイテム
+                    %th 価格
+                %tbody.cart__content__table__body
+                  - @bookmarks.each do |bookmark|
+                    %tr.cart__content__table__tr
+                      %td= image_tag bookmark.product.image, width: 120, height: 120
+                      %td= bookmark.product.namejap
+                      %td= "¥ #{convertToJPY(bookmark.product.price)}"

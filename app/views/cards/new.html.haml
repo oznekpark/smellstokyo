@@ -7,6 +7,8 @@
           %li.myPage__content__box__left__menu__list
             = link_to "MY PAGE トップ", user_path(@user.id)
           %li.myPage__content__box__left__menu__list
+            = link_to "お気に入り", bookmarks_path
+          %li.myPage__content__box__left__menu__list
             = link_to "注文履歴", orders_path
           %li.myPage__content__box__left__menu__list
             = link_to "送付先住所", addresses_path
