@@ -20,6 +20,12 @@ class BookmarksController < ApplicationController
     redirect_to controller: :products, action: :show, id: product.id
   end
 
+  def delete
+    bookmark = Bookmark.find_by(product_id: params[:product_id])
+    bookmark.destroy!
+    redirect_to action: :index
+  end
+
   private
   def set_cart
     @cart = current_cart

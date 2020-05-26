@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:create, :destroy]
   end
 
-  resources :bookmarks, only: :index
+  resources :bookmarks, only: :index do
+    collection do
+      delete 'delete'
+    end
+  end
   
   resources :users, only: :show
 
