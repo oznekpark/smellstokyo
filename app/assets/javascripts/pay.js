@@ -24,7 +24,6 @@ $(document).on('turbolinks:load', function() {
           let token = response.id;
           $("#form").append(`<input type="hidden" name="payjpToken" value=${token}>`);
           $("#form").get(0).submit();
-          // alert("登録が完了しました");
         }
       });
     });
