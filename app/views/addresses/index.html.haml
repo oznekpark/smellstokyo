@@ -1,41 +1,21 @@
-.myPage
-  .myPage__content
-    .myPage__content__title
-    .myPage__content__box
-      .myPage__content__box__left
-        %ul.myPage__content__box__left__menu
-          %li.myPage__content__box__left__menu__list
-            = link_to "MY PAGE トップ", user_path(@user.id)
-          %li.myPage__content__box__left__menu__list
-            = link_to "お気に入り", bookmarks_path
-          %li.myPage__content__box__left__menu__list
-            = link_to "注文履歴", orders_path
-          %li.myPage__content__box__left__menu__list
-            = link_to "送付先住所", addresses_path
-          %li.myPage__content__box__left__menu__list
-            = link_to "支払方法", new_card_path
-          %li.myPage__content__box__left__menu__list
-            = link_to "アカウント詳細", edit_user_registration_path
-          %li.myPage__content__box__left__menu__list
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-      .myPage__content__box__right
-        .addressIndex
-          .addressIndex__content
-            .addressIndex__content__title
-              送付先住所
-            .addressIndex__content__details
-            - if @address.present?
-              .addressIndex__content__details__postCode
-                = "〒 #{@address.postcode}"
-              .addressIndex__content__details__address
-                = @address.prefecture_code.to_s + @address.address_city + @address.address_street + @address.address_building
-              .addressIndex__content__details__receiver
-                = @address.destination_family_name + @address.destination_first_name
-              .addressIndex__content__edit
-                .addressIndex__content__edit__modify
-                  = link_to "修正する", edit_address_path(@address.id)
-                .addressIndex__content__edit__delete
-                  = link_to "削除する", address_path(@address.id), method: :delete
-            - else
-              .addressIndex__content__nothing
-                = link_to "登録する", new_address_path, data: {"turbolinks"=>false}, class: "addressIndex__content__nothing__btn"
+= render layout: "users/show", locals: { address: @address} do
+  .addressIndex
+    .addressIndex__content
+      .addressIndex__content__title
+        送付先住所
+      .addressIndex__content__details
+      - if @address.present?
+        .addressIndex__content__details__postCode
+          = "〒 #{@address.postcode}"
+        .addressIndex__content__details__address
+          = @address.prefecture_code.to_s + @address.address_city + @address.address_street + @address.address_building
+        .addressIndex__content__details__receiver
+          = @address.destination_family_name + @address.destination_first_name
+        .addressIndex__content__edit
+          .addressIndex__content__edit__modify
+            = link_to "修正する", edit_address_path(@address.id)
+          .addressIndex__content__edit__delete
+            = link_to "削除する", address_path(@address.id), method: :delete
+      - else
+        .addressIndex__content__nothing
+          = link_to "登録する", new_address_path, data: {"turbolinks"=>false}, class: "addressIndex__content__nothing__btn"
