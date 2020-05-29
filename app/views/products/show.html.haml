@@ -3,7 +3,7 @@
     .showMain__Boxes__leftBox
       = image_tag @product.image, width: 450, height: 450, class: "showMain__Boxes__leftBox__image"
     .showMain__Boxes__rightBox
-      = form_with url: add_item_carts_path, local: true do |f|
+      = form_with url: add_item_carts_path, local: true, name: "formForCart" do |f|
         .showMain__Boxes__rightBox__name
           = @product.name
         .showMain__Boxes__rightBox__namejap
@@ -12,7 +12,7 @@
           = @product.description
         .showMain__Boxes__rightBox__orderQuantity
           = f.label :quantity, "数量", class: "showMain__Boxes__rightBox__orderQuantity__title"
-          = f.select :quantity, stock_array_maker(@stock), {include_blank: "選択してください"}, {class: "showMain__Boxes__rightBox__orderQuantity__form"} 
+          = f.select :quantity, stock_array_maker(@stock), {include_blank: "選択してください"}, {class: "showMain__Boxes__rightBox__orderQuantity__form"}
         .showMain__Boxes__rightBox__line
           .showMain__Boxes__rightBox__line__price
             = "本体価格 : ¥#{convertToJPY(@product.price)}"
@@ -28,7 +28,7 @@
         .showMain__Boxes__rightBox__addCart
           = f.hidden_field :product_id, value: @product.id
           = f.hidden_field :cart_id, value: @cart.id
-          = f.submit "Add to Cart", {class: "showMain__Boxes__rightBox__addCart__btn"}
+          = f.submit "Add to Cart", {class: "showMain__Boxes__rightBox__addCart__btn", id: "addToCart"}
   .showMain__suggest
     .showMain__suggest__items
       WE ALSO SUGGEST YOU
