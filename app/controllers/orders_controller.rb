@@ -2,10 +2,8 @@ class OrdersController < ApplicationController
   before_action :set_cart
   before_action :user_signed_in
   before_action :set_user
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm]
   before_action :set_card
   before_action :set_address
-  # before_action :authenticate_user! #管理者用
 
   require "payjp"
 
@@ -65,27 +63,16 @@ class OrdersController < ApplicationController
       #モデルで定義したメソッドを使用して,単一購入から複数購入できるように変更する記述↓
       OrderDetail.create_items(@order, @cart.line_items)
       # OrderMailer.confirm_mail(@order).deliver
-      flash[:notice] = '注文が完了しました。マイページにて注文履歴の確認ができます。'
-      redirect_to root_path
+      redirect_to action: :confirm
     else
       flash[:alert] = "注文の登録ができませんでした"
       redirect_to action: :new
     end
   end
 
-  #確認画面
   def confirm
+    @order = Order.order(created_at: :desc).find_by(user_id: current_user.id)
   end
-
-  # 管理者向けアクション
-  # def index
-  #   @orders = Order.includes(:product, :user, :order_detail, :address, :card).order("created_at DESC") if user == admin
-  #   render layout: "application"
-  # end
-
-  # def show
-  #   render layout: "application"
-  # end
 
   private
   def order_params
@@ -94,10 +81,6 @@ class OrdersController < ApplicationController
 
   def set_user
     @user = current_user
-  end
-
-  def set_order
-    @order = Order.find(params[:id])
   end
 
   def set_cart

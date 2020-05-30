@@ -160,3 +160,44 @@ td {
   text-align: center;
   font-size: 15px;
 }
+.confirm {
+  width: 100%;
+  &__content {
+    width: 90%;
+    margin: 0 auto;
+    &__title {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 1.1em;
+    }
+    &__detail {
+      width: 80%;
+      margin: 0 auto;
+      &__line {
+        border-top: dashed 1px $base-font-color;
+        border-bottom: dashed 1px $base-font-color;
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px 0 20px 0;
+      }
+      &__list {
+        padding-top: 10px;
+        text-align: center;
+      }
+      &__line2 {
+        padding-top: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.top {
+  padding-top: 20px;
+  border-bottom: solid 1px rgb(137, 137, 137);
+  width: 30%;
+  margin: 0 auto;
+}
+.top:hover {
+  opacity: 0.6;
+}

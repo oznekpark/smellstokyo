@@ -1,8 +1,36 @@
-以下の内容でご注文を承りました。
----------------------------
-= "受付時間 : #{@order.updated_at}"
-= "お届け先 : #{@order.address}"
-- @order.order_details.each do |detail|
-  = "製品名 : #{Product.find(detail.product_id).title}"
-  = "数量 : #{detail.quantity}個"
----------------------------
+.confirm
+  .confirm__content
+    .confirm__content__title
+      この度はSMELLS TOKYO STOREをご利用いただき、誠にありがとうございます。
+      %br
+      %br
+      ご注文を下記の内容で承りました。商品発送まで今しばらくお待ちください。
+    .confirm__content__detail
+      .confirm__content__detail__line
+        .confirm__content__detail__list
+          = "受付時間 : #{@order.created_at.strftime('%Y/%m/%d/ %H:%M:%S')}"
+        .confirm__content__detail__list
+          = "受付番号 : #{@order.id}"
+        .confirm__content__detail__list
+          = "氏名 : #{@order.address.destination_family_name + @order.address.destination_first_name}"
+        .confirm__content__detail__list
+          = "ふりがな : #{@order.address.destination_family_name_kana + @order.address.destination_first_name_kana}"
+        .confirm__content__detail__list
+          = "Eメール : #{@order.user.email}"
+        .confirm__content__detail__list
+          = "郵便番号 : #{splitNumber(@order.address.postcode)}"
+        - if @order.address.address_building.present?
+          .confirm__content__detail__list
+            = "住所 : #{@order.address.prefecture_code + @order.address.address_city + @order.address.address_street + @order.address.address_building}"
+        - else
+          .confirm__content__detail__list
+            = "住所 : #{@order.address.prefecture_code + @order.address.address_city + @order.address.address_street}"
+      .confirm__content__detail__line2
+        購入商品
+      - @order.order_details.each do |detail|
+        .confirm__content__detail__list
+          = "#{detail.product.namejap} × #{detail.quantity}"
+      .confirm__content__detail__list
+        = "お支払い金額：¥ #{convertToJPY(@order.price)}"
+      .top.confirm__content__detail__list
+        = link_to "トップページへ戻る",root_path, data: {"turbolinks"=>false}
