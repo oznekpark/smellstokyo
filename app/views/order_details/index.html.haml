@@ -2,7 +2,7 @@
   .orderDetails
     .orderDetails__content
       .orderDetails__content__title
-        ご注文履歴詳細
+        注文履歴詳細
       %table.orderDetails__content__table{border: 2}
         %thead
           %tr
@@ -14,6 +14,6 @@
           - @orderDetails.each do |detail|
             %tr
               %td= detail.created_at.strftime('%Y/%m/%d') 
-              %td= detail.product.namejap
+              %td= link_to "#{detail.product.namejap}", product_path(detail.product.id)
               %td= detail.quantity
               %td= "¥ #{convertToJPY(detail.product.price)}"

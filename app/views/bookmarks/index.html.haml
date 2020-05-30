@@ -12,12 +12,11 @@
             %tr.cart__content__table__tr
               %th &nbsp;
               %th アイテム
-              %th 価格
               %th &nbsp;
           %tbody.cart__content__table__body
             - @bookmarks.each do |bookmark|
               %tr.cart__content__table__tr
                 %td= image_tag bookmark.product.image, width: 120, height: 120
-                %td= bookmark.product.namejap
-                %td= "¥ #{convertToJPY(bookmark.product.price)}"
-                %td= link_to "削除する", delete_bookmarks_path(product_id: bookmark.product.id), method: :delete
+                %td= link_to "#{bookmark.product.namejap}", product_path(bookmark.product.id)
+                %td= link_to "削除", delete_bookmarks_path(product_id: bookmark.product.id), method: :delete
+
