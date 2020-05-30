@@ -40,13 +40,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:new, :create, :show, :index] do
+  resources :orders, only: [:new, :create, :index] do
     collection do
       get 'confirm'
     end
   end 
 
-  resources :order_details
+  resources :order_details, only: :index
   
   resources :cards, only: [:new, :create, :show, :destroy] 
 

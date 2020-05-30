@@ -24,7 +24,7 @@
                   %td= order.status
                   %td
                     - if order.order_details.to_a.size == 1
-                      = link_to "#{product.namejap}", "#"
+                      = link_to "#{product.namejap}", order_details_path(order_id: order.id)
                     -else 
-                      = link_to "#{product.namejap} など #{order.order_details.to_a.size}件", "#"
+                      = link_to "#{product.namejap} など #{order.order_details.to_a.size}件", order_details_path(order_id: order.id)
                   %td= "¥ #{convertToJPY(order.price)}"

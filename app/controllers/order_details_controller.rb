@@ -3,9 +3,7 @@ class OrderDetailsController < ApplicationController
   before_action :set_user
 
   def index
-  end
-
-  def show
+    @orderDetails = OrderDetail.where(order_id: params[:order_id])
   end
 
   private
