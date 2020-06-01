@@ -28,7 +28,7 @@
           .index-contents__selectTab__selectCategory__list__tag
             = f.select :use_scene_id, UseScene.all.map { |use_scene| [use_scene.name, use_scene.id] }, prompt: "使用場面を選択", class:"index-contents__selectTab__selectCategory__list__tag__select"
       .index-contents__selectTab__selectBtn
-        = button_tag "絞り込む", class:"index-contents__selectTab__selectBtn__btn"
+        = button_tag "絞り込む", class:"index-contents__selectTab__selectBtn__btn", id:"selectBtn"
   .index-contents__topicPath
     -# home > index
   .index-contents__amountProducts

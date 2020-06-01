@@ -19,4 +19,3 @@
                 %td= image_tag bookmark.product.image, width: 120, height: 120
                 %td= link_to "#{bookmark.product.namejap}", product_path(bookmark.product.id)
                 %td= link_to "削除", delete_bookmarks_path(product_id: bookmark.product.id), method: :delete
-
