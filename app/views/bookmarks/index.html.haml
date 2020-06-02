@@ -1,4 +1,4 @@
-= render layout: "users/show", locals: { bookmarks: @bookmarks} do
+= render layout: "users/show" do
   .orderedItems
     .orderedItems__content
       .orderedItems__content__title
@@ -16,6 +16,6 @@
           %tbody.cart__content__table__body
             - @bookmarks.each do |bookmark|
               %tr.cart__content__table__tr
-                %td= image_tag bookmark.product.image, width: 120, height: 120
+                %td= image_tag bookmark.product.image, width: 100, height: 100
                 %td= link_to "#{bookmark.product.namejap}", product_path(bookmark.product.id)
                 %td= link_to "削除", delete_bookmarks_path(product_id: bookmark.product.id), method: :delete
