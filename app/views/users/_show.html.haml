@@ -5,6 +5,9 @@
         %ul.myPage__content__box__left__menu
           %li.myPage__content__box__left__menu__list
             = link_to "MY PAGE トップ", user_path(@user.id)
+          - if @user.admin?
+            %li.myPage__content__box__left__menu__list
+              = link_to "売上確認", "https://pay.jp/d/"
           %li.myPage__content__box__left__menu__list
             = link_to "お気に入り", bookmarks_path
           %li.myPage__content__box__left__menu__list
