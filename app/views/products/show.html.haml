@@ -4,7 +4,7 @@
     = render "layouts/breadcrumbs"
   .showMain__Boxes
     .showMain__Boxes__leftBox
-      = image_tag @product.image, width: 450, height: 450, class: "showMain__Boxes__leftBox__image"
+      = image_tag @product.image, width: 450, height: 410, class: "showMain__Boxes__leftBox__image"
     .showMain__Boxes__rightBox
       = form_with url: add_item_carts_path, local: true, name: "formForCart" do |f|
         .showMain__Boxes__rightBox__name
