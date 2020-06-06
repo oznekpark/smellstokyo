@@ -30,7 +30,8 @@
       .index-contents__selectTab__selectBtn
         = button_tag "絞り込む", class:"index-contents__selectTab__selectBtn__btn", id:"selectBtn"
   .index-contents__topicPath
-    -# home > index
+    - breadcrumb :products 
+    = render "layouts/breadcrumbs"
   .index-contents__amountProducts
     = "商品数：#{@products.length}件"
   .index-contents__main

@@ -1,4 +1,7 @@
 .showMain
+  .showMain__topicPath
+    - breadcrumb :product, @product
+    = render "layouts/breadcrumbs"
   .showMain__Boxes
     .showMain__Boxes__leftBox
       = image_tag @product.image, width: 450, height: 450, class: "showMain__Boxes__leftBox__image"

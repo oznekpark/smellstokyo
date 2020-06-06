@@ -124,8 +124,8 @@
     }
   }
   &__topicPath {
-    width: 60%;
     margin: 0 auto;
+    width: 70%;
     color: $base-font-color;
   }
   &__amountProducts {
@@ -179,6 +179,11 @@ select {
 .showMain {
   width: 100%;
   color: $base-font-color;
+  &__topicPath {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
   &__Boxes {
     display: flex;
     width: 100%;

@@ -1,1 +1,47 @@
-= render 'index', collection: @products
+.index-contents
+  .index-contents__selectTab
+    = form_with(url: searchFromPulldownsForm_products_path, local: true, method: :get) do |f|
+      %ul.index-contents__selectTab__selectCategory
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :brand_id, Brand.all.map { |brand| [brand.name, brand.id] }, prompt: "ブランドを選択", class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :sex_id, Sex.all.map { |sex| [sex.name, sex.id] }, prompt: "性別を選択", class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :smell_type_id, SmellType.all.map { |smell_type| [smell_type.name, smell_type.id] }, prompt: "香りのタイプを選択", class:"index-contents__selectTab__selectCategory__list__tag__select"
+      %ul.index-contents__selectTab__selectCategory
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :main_spice_id, MainSpice.all.map { |main_spice| [main_spice.name, main_spice.id] }, prompt: "メインの香りを選択", class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :smell_impression_id, SmellImpression.all.map { |smell_impression| [smell_impression.name, smell_impression.id] }, prompt: "持たせたい印象を選択", class:"index-contents__selectTab__selectCategory__list__tag__select"
+        %li.index-contents__selectTab__selectCategory__list
+          .index-contents__selectTab__selectCategory__list__description
+          .index-contents__selectTab__selectCategory__list__tag
+            = f.select :use_scene_id, UseScene.all.map { |use_scene| [use_scene.name, use_scene.id] }, prompt: "使用場面を選択", class:"index-contents__selectTab__selectCategory__list__tag__select"
+      .index-contents__selectTab__selectBtn
+        = button_tag "絞り込む", class:"index-contents__selectTab__selectBtn__btn", id:"selectBtn"
+  .index-contents__topicPath
+    - breadcrumb :womenproducts 
+    = render "layouts/breadcrumbs"
+  .index-contents__amountProducts
+    = "商品数：#{@products.length}件"
+  .index-contents__main
+    .index-contents__main__categoryList
+      %ul.index-contents__main__categoryList__innerList
+        - @products.each do |product|
+          %li.index-contents__main__categoryList__innerList__innerBox
+            .index-contents__main__categoryList__innerList__innerBox__image
+              = link_to product_path(product.id), class: "index-contents__main__categoryList__innerList__innerBox__image__link", data: {"turbolinks" => false} do
+                = image_tag product.image, width: 310, height: 280
+            .index-contents__main__categoryList__innerList__innerBox__detail
+              = link_to product_path(product.id), class: "index-contents__main__categoryList__innerList__innerBox__detail__name", data: {"turbolinks" => false} do
+                = product.name
