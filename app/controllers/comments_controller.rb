@@ -2,8 +2,18 @@ class CommentsController < ApplicationController
   before_action :set_user
 
   def create
-    comment = Comment.create(comment_params)
-    redirect_to "/products/#{comment.product.id}"
+    binding.pry
+    comment = Comment.new(comment_params)
+    if comment.save
+      respond_to do |format|
+        format.html {redirect_to "/products/#{comment.product.id}"}
+        format.json
+      end
+    else
+      @product = Product.find(params[:id])
+      @comments = @product.comments.includes(:user).order('created_at DESC')
+      render controller: :products, action: :show, id: @product.id
+    end
   end
 
   private
