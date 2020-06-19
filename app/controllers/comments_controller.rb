@@ -2,11 +2,10 @@ class CommentsController < ApplicationController
   before_action :set_user
 
   def create
-    binding.pry
-    comment = Comment.new(comment_params)
-    if comment.save
+    @comment = Comment.new(comment_params)
+    if @comment.save
       respond_to do |format|
-        format.html {redirect_to "/products/#{comment.product.id}"}
+        format.html {redirect_to product_path(@comment.product.id)}
         format.json
       end
     else
