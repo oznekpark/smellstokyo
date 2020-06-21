@@ -42,7 +42,7 @@
             = link_to product_path(product.id), class: "showMain__suggest__contents__box__each__link", data: {"turbolinks" => false} do
               = image_tag product.image, width: 260, height: 260
   .comments
-    .comments__title
+    .comments__title{id: @product.comments.length comments__title}
       = "レビュー(#{@product.comments.length})"
     - if @comments
       - @comments.each do |comment|
