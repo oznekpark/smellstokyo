@@ -29,9 +29,9 @@ $(function(){
     return html;
   }
   function addCommentNum(comments_amount){
-    let num = `<div class="comments__title" id="${comments_amount + 1}">
-                レビュー(${comments_amount + 1})
-              </div>`
+    let num = `<div class="comments__title" id="comments__title" review_id="${parseInt(comments_amount) + 1}">
+               レビュー(${parseInt(comments_amount) + 1})
+              </div>`;
     return num;
   }
   $("#new_comment").on("submit", function(e){
@@ -50,13 +50,10 @@ $(function(){
       let html = buildHTML(comment);
       $(".comments").append(html);
       $("#new_comment")[0].reset();
-      let comments_amount = $(".comments__title").attr('id');
-      // $(".comments__title").innerHTML= `<div class="comments__title" id="${parseInt(comments_amount) + 1}">
-      //                                   レビュー(${parseInt(comments_amount) + 1})
-      //                                   </div>`;
-      let num = parseInt(comments_amount) + 1;
-      console.log(num);
-      
+      let comments_amount = $(".comments__title").attr('review_id');
+      let num = addCommentNum(comments_amount);
+      $('#comments__title').remove();
+      $(num).prependTo('.comments');
     })
     .fail(function(){
       alert("メッセージの送信に失敗しました");
