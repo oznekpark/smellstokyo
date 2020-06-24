@@ -60,5 +60,4 @@ $ bundle install
 - Ruby on Rails 5.2.4.2
 
 ## 👀 E-R Diagram
-
-
+<img width="1001" alt="スクリーンショット 2020-06-24 18 50 59" src="https://user-images.githubusercontent.com/60377349/85540710-4c2fdc80-b652-11ea-81a9-79851429a05b.png">
