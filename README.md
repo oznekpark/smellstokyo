@@ -1,6 +1,7 @@
-# SMELLS TOKYO
 <img width="1440" alt="スクリーンショット 2020-06-24 18 58 39" src="https://user-images.githubusercontent.com/60377349/85536280-eb060a00-b64d-11ea-8660-80e7b176f6e7.png">
 
+# SMELLS TOKYO
+<br>
 <p align="center">
   <a href="https://guides.rubyonrails.org/"><img width="200" alt="68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3534333133332f37613663323763642d303963622d623965372d376231622d3163623536646662656530632e706e67" src="https://user-images.githubusercontent.com/60377349/85693307-1a317f80-b711-11ea-9ae6-b1fa9b3e601d.png"></a>
   <a href="https://aws.amazon.com/jp/?nc2=h_lg"><img width="200" alt="73935917-fec20580-4924-11ea-9b42-36715e8d4ede" src="https://user-images.githubusercontent.com/60377349/85695135-b7d97e80-b712-11ea-9631-79a922107cbe.png"></a>
