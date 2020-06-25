@@ -1,4 +1,4 @@
-![facebook_profile_image](https://user-images.githubusercontent.com/60377349/85702330-3f29f080-b719-11ea-9289-cd868beaf17c.png)
+![facebook_cover_photo_2](https://user-images.githubusercontent.com/60377349/85702639-9334d500-b719-11ea-92ad-ad11e3f01b96.png)
 
 # SMELLS TOKYO
 <br>
