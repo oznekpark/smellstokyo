@@ -1,4 +1,4 @@
-<img width="1440" alt="スクリーンショット 2020-06-24 18 58 39" src="https://user-images.githubusercontent.com/60377349/85536280-eb060a00-b64d-11ea-8660-80e7b176f6e7.png">
+![facebook_profile_image](https://user-images.githubusercontent.com/60377349/85702330-3f29f080-b719-11ea-9289-cd868beaf17c.png)
 
 # SMELLS TOKYO
 <br>
