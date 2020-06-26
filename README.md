@@ -69,3 +69,35 @@ $ bundle install
 
 ## 👀 E-R Diagram
 <img width="1001" alt="スクリーンショット 2020-06-24 18 50 59" src="https://user-images.githubusercontent.com/60377349/85540710-4c2fdc80-b652-11ea-81a9-79851429a05b.png">
+
+## 📙 Features
+### Home
+![18 176 232 167_ (1)](https://user-images.githubusercontent.com/60377349/85860335-98695100-b7f9-11ea-8a05-2d0e9c860f8f.png)
+### Index of products
+![18 176 232 167_](https://user-images.githubusercontent.com/60377349/85860391-b33bc580-b7f9-11ea-821d-5271e17cf6fe.png)
+### Detail of a product
+![18 176 232 167_products_2](https://user-images.githubusercontent.com/60377349/85860429-c189e180-b7f9-11ea-9a5e-eb17945ea8f9.png)
+### Cart
+![18 176 232 167_carts_9151](https://user-images.githubusercontent.com/60377349/85860538-ec743580-b7f9-11ea-8ea1-91149f73ea12.png)
+### Log in
+![18 176 232 167_ (2)](https://user-images.githubusercontent.com/60377349/85860604-044bb980-b7fa-11ea-9f9e-a69db925fd2d.png)
+### Sign up
+![18 176 232 167_ (3)](https://user-images.githubusercontent.com/60377349/85860617-09a90400-b7fa-11ea-9905-bc50c4c0aad0.png)
+### My Account
+![18 176 232 167_cards_3](https://user-images.githubusercontent.com/60377349/85860669-1cbbd400-b7fa-11ea-8ee8-8713f85ca068.png)
+### Favarite
+![18 176 232 167_products_2 (1)](https://user-images.githubusercontent.com/60377349/85860713-2cd3b380-b7fa-11ea-92d2-87d59efd5583.png)
+### Registration of an address
+![18 176 232 167_addresses_8_edit](https://user-images.githubusercontent.com/60377349/85860783-4412a100-b7fa-11ea-8916-e255dcadecaf.png)
+### Registration of a credit card
+![18 176 232 167_users_3](https://user-images.githubusercontent.com/60377349/85860804-4a088200-b7fa-11ea-986a-861a3fb81bd1.png)
+### Confirmation before payment
+![18 176 232 167_carts_9151 (1)](https://user-images.githubusercontent.com/60377349/85860851-5ab8f800-b7fa-11ea-8ff5-ffbe99a40ffc.png)
+### Completion of Purchasing
+![18 176 232 167_orders_confirm](https://user-images.githubusercontent.com/60377349/85860859-60164280-b7fa-11ea-9060-0f9157f2b5fe.png)
+### Purchase history
+![18 176 232 167_ (4)](https://user-images.githubusercontent.com/60377349/85860911-73c1a900-b7fa-11ea-819d-6a7a0b025560.png)
+![18 176 232 167_ (5)](https://user-images.githubusercontent.com/60377349/85860927-791ef380-b7fa-11ea-952d-c0b02253ca42.png)
+### Registration of products (admin user)
+![18 176 232 167_admin](https://user-images.githubusercontent.com/60377349/85860956-863be280-b7fa-11ea-876e-227979f63b61.png)
+![18 176 232 167_admin (1)](https://user-images.githubusercontent.com/60377349/85860972-8cca5a00-b7fa-11ea-8be1-43c7df8ea8fd.png)
